@@ -1,0 +1,1318 @@
+{    
+    "tweets":
+    [
+        {
+        "nombre": "Hollie Rivas",
+        "comentario": "Tweet:0",
+        "hashtags": [
+            "aute"
+        ],
+        "upvotes": 30,
+        "downvotes": 27
+        },
+        {
+        "nombre": "Crosby Dean",
+        "comentario": "Tweet:1",
+        "hashtags": [
+            "exercitation",
+            "duis",
+            "incididunt",
+            "anim",
+            "eu",
+            "eiusmod"
+        ],
+        "upvotes": 64,
+        "downvotes": 99
+        },
+        {
+        "nombre": "Leonard Dudley",
+        "comentario": "Tweet:2",
+        "hashtags": [
+            "pariatur"
+        ],
+        "upvotes": 84,
+        "downvotes": 48
+        },
+        {
+        "nombre": "Francesca Joseph",
+        "comentario": "Tweet:3",
+        "hashtags": [
+            "occaecat"
+        ],
+        "upvotes": 49,
+        "downvotes": 38
+        },
+        {
+        "nombre": "Carey Bowers",
+        "comentario": "Tweet:4",
+        "hashtags": [
+            "qui",
+            "veniam"
+        ],
+        "upvotes": 80,
+        "downvotes": 26
+        },
+        {
+        "nombre": "Adrian Mcgowan",
+        "comentario": "Tweet:5",
+        "hashtags": [
+            "duis"
+        ],
+        "upvotes": 55,
+        "downvotes": 88
+        },
+        {
+        "nombre": "Dixon Lott",
+        "comentario": "Tweet:6",
+        "hashtags": [
+            "est",
+            "duis",
+            "elit",
+            "nisi"
+        ],
+        "upvotes": 68,
+        "downvotes": 79
+        },
+        {
+        "nombre": "Bettye Wood",
+        "comentario": "Tweet:7",
+        "hashtags": [
+            "non"
+        ],
+        "upvotes": 29,
+        "downvotes": 77
+        },
+        {
+        "nombre": "Obrien Conley",
+        "comentario": "Tweet:8",
+        "hashtags": [
+            "pariatur",
+            "quis",
+            "consectetur",
+            "tempor",
+            "laborum",
+            "id",
+            "incididunt",
+            "nostrud"
+        ],
+        "upvotes": 83,
+        "downvotes": 63
+        },
+        {
+        "nombre": "Cooper Robbins",
+        "comentario": "Tweet:9",
+        "hashtags": [
+            "velit",
+            "ut",
+            "dolor",
+            "labore",
+            "ex",
+            "tempor",
+            "labore",
+            "non",
+            "ullamco"
+        ],
+        "upvotes": 65,
+        "downvotes": 92
+        },
+        {
+        "nombre": "Bailey Fitzpatrick",
+        "comentario": "Tweet:10",
+        "hashtags": [
+            "est",
+            "ullamco",
+            "laborum"
+        ],
+        "upvotes": 46,
+        "downvotes": 33
+        },
+        {
+        "nombre": "Kline Deleon",
+        "comentario": "Tweet:11",
+        "hashtags": [
+            "enim"
+        ],
+        "upvotes": 36,
+        "downvotes": 90
+        },
+        {
+        "nombre": "Estela Frazier",
+        "comentario": "Tweet:12",
+        "hashtags": [
+            "laborum",
+            "sint",
+            "ex",
+            "qui",
+            "aliquip",
+            "aliquip",
+            "laborum",
+            "enim"
+        ],
+        "upvotes": 95,
+        "downvotes": 91
+        },
+        {
+        "nombre": "Janelle Bates",
+        "comentario": "Tweet:13",
+        "hashtags": [
+            "magna",
+            "cillum",
+            "consectetur"
+        ],
+        "upvotes": 35,
+        "downvotes": 98
+        },
+        {
+        "nombre": "Cristina Wilcox",
+        "comentario": "Tweet:14",
+        "hashtags": [
+            "veniam"
+        ],
+        "upvotes": 81,
+        "downvotes": 92
+        },
+        {
+        "nombre": "Oneil Jacobs",
+        "comentario": "Tweet:15",
+        "hashtags": [
+            "culpa",
+            "tempor",
+            "elit",
+            "adipisicing",
+            "tempor",
+            "est",
+            "cillum",
+            "laboris"
+        ],
+        "upvotes": 12,
+        "downvotes": 48
+        },
+        {
+        "nombre": "Leigh Mayo",
+        "comentario": "Tweet:16",
+        "hashtags": [
+            "sunt",
+            "esse",
+            "consequat",
+            "consequat",
+            "est",
+            "tempor"
+        ],
+        "upvotes": 45,
+        "downvotes": 71
+        },
+        {
+        "nombre": "Reilly Irwin",
+        "comentario": "Tweet:17",
+        "hashtags": [
+            "do",
+            "enim",
+            "ea",
+            "ad",
+            "culpa"
+        ],
+        "upvotes": 22,
+        "downvotes": 37
+        },
+        {
+        "nombre": "Opal Dyer",
+        "comentario": "Tweet:18",
+        "hashtags": [
+            "ad",
+            "aliqua",
+            "duis",
+            "aute"
+        ],
+        "upvotes": 88,
+        "downvotes": 93
+        },
+        {
+        "nombre": "Yang Hebert",
+        "comentario": "Tweet:19",
+        "hashtags": [
+            "quis",
+            "non",
+            "quis",
+            "ex",
+            "officia",
+            "amet",
+            "voluptate",
+            "consequat",
+            "ad"
+        ],
+        "upvotes": 89,
+        "downvotes": 90
+        },
+        {
+        "nombre": "Catherine Curry",
+        "comentario": "Tweet:20",
+        "hashtags": [
+            "cillum",
+            "culpa",
+            "minim",
+            "mollit",
+            "duis"
+        ],
+        "upvotes": 52,
+        "downvotes": 88
+        },
+        {
+        "nombre": "Burks Mcintyre",
+        "comentario": "Tweet:21",
+        "hashtags": [
+            "amet"
+        ],
+        "upvotes": 87,
+        "downvotes": 13
+        },
+        {
+        "nombre": "Kelley Lang",
+        "comentario": "Tweet:22",
+        "hashtags": [
+            "ullamco",
+            "eiusmod",
+            "sint",
+            "ut",
+            "id",
+            "sint",
+            "laboris",
+            "voluptate"
+        ],
+        "upvotes": 20,
+        "downvotes": 60
+        },
+        {
+        "nombre": "Gardner Kelly",
+        "comentario": "Tweet:23",
+        "hashtags": [
+            "quis",
+            "excepteur",
+            "Lorem",
+            "ut",
+            "culpa",
+            "dolor",
+            "sunt",
+            "aliqua",
+            "minim"
+        ],
+        "upvotes": 24,
+        "downvotes": 71
+        },
+        {
+        "nombre": "Glenda Lawrence",
+        "comentario": "Tweet:24",
+        "hashtags": [
+            "proident",
+            "aliqua",
+            "consequat",
+            "ea",
+            "consequat",
+            "Lorem",
+            "magna"
+        ],
+        "upvotes": 69,
+        "downvotes": 79
+        },
+        {
+        "nombre": "Allison Schwartz",
+        "comentario": "Tweet:25",
+        "hashtags": [
+            "esse",
+            "aute",
+            "amet"
+        ],
+        "upvotes": 85,
+        "downvotes": 73
+        },
+        {
+        "nombre": "Edwards Robinson",
+        "comentario": "Tweet:26",
+        "hashtags": [
+            "ipsum",
+            "eu",
+            "et",
+            "excepteur",
+            "dolore"
+        ],
+        "upvotes": 79,
+        "downvotes": 31
+        },
+        {
+        "nombre": "Todd Sanders",
+        "comentario": "Tweet:27",
+        "hashtags": [
+            "ea",
+            "reprehenderit",
+            "proident",
+            "mollit",
+            "Lorem",
+            "dolor"
+        ],
+        "upvotes": 67,
+        "downvotes": 14
+        },
+        {
+        "nombre": "Knowles Cardenas",
+        "comentario": "Tweet:28",
+        "hashtags": [
+            "laboris",
+            "dolore",
+            "laboris",
+            "laboris",
+            "exercitation",
+            "reprehenderit",
+            "excepteur",
+            "irure"
+        ],
+        "upvotes": 67,
+        "downvotes": 93
+        },
+        {
+        "nombre": "Palmer Brennan",
+        "comentario": "Tweet:29",
+        "hashtags": [
+            "proident",
+            "commodo",
+            "nostrud",
+            "pariatur",
+            "magna",
+            "irure",
+            "exercitation",
+            "officia",
+            "dolor"
+        ],
+        "upvotes": 20,
+        "downvotes": 52
+        },
+        {
+        "nombre": "Millicent Flores",
+        "comentario": "Tweet:30",
+        "hashtags": [
+            "consequat",
+            "proident",
+            "ipsum",
+            "id",
+            "culpa",
+            "id",
+            "duis",
+            "commodo"
+        ],
+        "upvotes": 46,
+        "downvotes": 93
+        },
+        {
+        "nombre": "Dianna Griffin",
+        "comentario": "Tweet:31",
+        "hashtags": [
+            "non",
+            "amet",
+            "laboris",
+            "velit",
+            "exercitation",
+            "aliquip",
+            "officia",
+            "cupidatat",
+            "quis"
+        ],
+        "upvotes": 100,
+        "downvotes": 54
+        },
+        {
+        "nombre": "York Golden",
+        "comentario": "Tweet:32",
+        "hashtags": [
+            "laboris",
+            "ea"
+        ],
+        "upvotes": 53,
+        "downvotes": 33
+        },
+        {
+        "nombre": "Middleton Odonnell",
+        "comentario": "Tweet:33",
+        "hashtags": [
+            "id",
+            "nisi",
+            "nostrud"
+        ],
+        "upvotes": 67,
+        "downvotes": 94
+        },
+        {
+        "nombre": "Penelope Larsen",
+        "comentario": "Tweet:34",
+        "hashtags": [
+            "ut",
+            "fugiat",
+            "sit",
+            "cupidatat",
+            "nulla",
+            "ut",
+            "ex",
+            "quis"
+        ],
+        "upvotes": 50,
+        "downvotes": 22
+        },
+        {
+        "nombre": "Gates Valdez",
+        "comentario": "Tweet:35",
+        "hashtags": [
+            "sit",
+            "labore",
+            "quis",
+            "esse",
+            "aliqua",
+            "mollit",
+            "ea",
+            "proident"
+        ],
+        "upvotes": 36,
+        "downvotes": 61
+        },
+        {
+        "nombre": "Whitney Baxter",
+        "comentario": "Tweet:36",
+        "hashtags": [
+            "labore",
+            "laborum",
+            "amet",
+            "occaecat"
+        ],
+        "upvotes": 24,
+        "downvotes": 11
+        },
+        {
+        "nombre": "Sandoval Cooley",
+        "comentario": "Tweet:37",
+        "hashtags": [
+            "nisi",
+            "in",
+            "duis",
+            "eiusmod",
+            "veniam"
+        ],
+        "upvotes": 89,
+        "downvotes": 57
+        },
+        {
+        "nombre": "Bright Fuentes",
+        "comentario": "Tweet:38",
+        "hashtags": [
+            "ex",
+            "mollit",
+            "Lorem",
+            "ipsum",
+            "est",
+            "anim",
+            "esse",
+            "ullamco",
+            "labore"
+        ],
+        "upvotes": 42,
+        "downvotes": 38
+        },
+        {
+        "nombre": "Rodriguez Christensen",
+        "comentario": "Tweet:39",
+        "hashtags": [
+            "adipisicing",
+            "non",
+            "sit"
+        ],
+        "upvotes": 58,
+        "downvotes": 64
+        },
+        {
+        "nombre": "Riggs Ramirez",
+        "comentario": "Tweet:40",
+        "hashtags": [
+            "ad",
+            "non",
+            "labore"
+        ],
+        "upvotes": 16,
+        "downvotes": 12
+        },
+        {
+        "nombre": "Pitts Hendrix",
+        "comentario": "Tweet:41",
+        "hashtags": [
+            "ut",
+            "culpa",
+            "officia",
+            "voluptate",
+            "officia",
+            "irure",
+            "ullamco"
+        ],
+        "upvotes": 69,
+        "downvotes": 33
+        },
+        {
+        "nombre": "Ella Burns",
+        "comentario": "Tweet:42",
+        "hashtags": [
+            "in",
+            "ullamco",
+            "quis",
+            "aliqua",
+            "tempor",
+            "fugiat",
+            "eiusmod",
+            "exercitation"
+        ],
+        "upvotes": 36,
+        "downvotes": 31
+        },
+        {
+        "nombre": "Durham Rutledge",
+        "comentario": "Tweet:43",
+        "hashtags": [
+            "exercitation",
+            "anim",
+            "eiusmod"
+        ],
+        "upvotes": 46,
+        "downvotes": 84
+        },
+        {
+        "nombre": "Skinner Hays",
+        "comentario": "Tweet:44",
+        "hashtags": [
+            "mollit",
+            "nisi",
+            "magna",
+            "do"
+        ],
+        "upvotes": 44,
+        "downvotes": 40
+        },
+        {
+        "nombre": "Romero Richard",
+        "comentario": "Tweet:45",
+        "hashtags": [
+            "magna",
+            "ullamco",
+            "fugiat"
+        ],
+        "upvotes": 76,
+        "downvotes": 46
+        },
+        {
+        "nombre": "Oneill Landry",
+        "comentario": "Tweet:46",
+        "hashtags": [
+            "consequat",
+            "incididunt",
+            "irure",
+            "sunt",
+            "mollit",
+            "aliqua",
+            "nisi",
+            "labore"
+        ],
+        "upvotes": 88,
+        "downvotes": 72
+        },
+        {
+        "nombre": "Bertha Riggs",
+        "comentario": "Tweet:47",
+        "hashtags": [
+            "id",
+            "duis",
+            "qui",
+            "esse",
+            "laboris",
+            "sint"
+        ],
+        "upvotes": 35,
+        "downvotes": 55
+        },
+        {
+        "nombre": "Rena Estes",
+        "comentario": "Tweet:48",
+        "hashtags": [
+            "non",
+            "nisi",
+            "nisi",
+            "mollit",
+            "incididunt",
+            "occaecat",
+            "sit"
+        ],
+        "upvotes": 97,
+        "downvotes": 43
+        },
+        {
+        "nombre": "Dollie Woodward",
+        "comentario": "Tweet:49",
+        "hashtags": [
+            "ullamco",
+            "incididunt"
+        ],
+        "upvotes": 53,
+        "downvotes": 28
+        },
+        {
+        "nombre": "Stein Sanford",
+        "comentario": "Tweet:50",
+        "hashtags": [
+            "consectetur",
+            "sint",
+            "consequat",
+            "cillum",
+            "nulla",
+            "culpa",
+            "cillum",
+            "eu"
+        ],
+        "upvotes": 79,
+        "downvotes": 79
+        },
+        {
+        "nombre": "Adela Farley",
+        "comentario": "Tweet:51",
+        "hashtags": [
+            "aliqua",
+            "ut",
+            "ut",
+            "deserunt"
+        ],
+        "upvotes": 77,
+        "downvotes": 22
+        },
+        {
+        "nombre": "Dona Travis",
+        "comentario": "Tweet:52",
+        "hashtags": [
+            "commodo",
+            "non",
+            "Lorem",
+            "id",
+            "proident",
+            "esse"
+        ],
+        "upvotes": 22,
+        "downvotes": 66
+        },
+        {
+        "nombre": "Haley Levine",
+        "comentario": "Tweet:53",
+        "hashtags": [
+            "occaecat",
+            "ea",
+            "in",
+            "cillum",
+            "exercitation"
+        ],
+        "upvotes": 63,
+        "downvotes": 29
+        },
+        {
+        "nombre": "Annmarie Sweet",
+        "comentario": "Tweet:54",
+        "hashtags": [
+            "velit",
+            "aute",
+            "ullamco",
+            "anim",
+            "incididunt"
+        ],
+        "upvotes": 30,
+        "downvotes": 53
+        },
+        {
+        "nombre": "Geneva Short",
+        "comentario": "Tweet:55",
+        "hashtags": [
+            "eu",
+            "magna",
+            "exercitation",
+            "laboris",
+            "tempor",
+            "do",
+            "aliqua"
+        ],
+        "upvotes": 17,
+        "downvotes": 44
+        },
+        {
+        "nombre": "Judith Jarvis",
+        "comentario": "Tweet:56",
+        "hashtags": [
+            "minim",
+            "ad"
+        ],
+        "upvotes": 62,
+        "downvotes": 53
+        },
+        {
+        "nombre": "Dixie Kirkland",
+        "comentario": "Tweet:57",
+        "hashtags": [
+            "velit",
+            "minim"
+        ],
+        "upvotes": 75,
+        "downvotes": 32
+        },
+        {
+        "nombre": "Gregory Mullins",
+        "comentario": "Tweet:58",
+        "hashtags": [
+            "aliqua"
+        ],
+        "upvotes": 16,
+        "downvotes": 63
+        },
+        {
+        "nombre": "Phyllis Morrison",
+        "comentario": "Tweet:59",
+        "hashtags": [
+            "consequat",
+            "culpa"
+        ],
+        "upvotes": 89,
+        "downvotes": 57
+        },
+        {
+        "nombre": "Coleen Love",
+        "comentario": "Tweet:60",
+        "hashtags": [
+            "aliquip",
+            "elit",
+            "nulla",
+            "ea"
+        ],
+        "upvotes": 66,
+        "downvotes": 76
+        },
+        {
+        "nombre": "Carpenter Peterson",
+        "comentario": "Tweet:61",
+        "hashtags": [
+            "do",
+            "nisi",
+            "dolore"
+        ],
+        "upvotes": 23,
+        "downvotes": 67
+        },
+        {
+        "nombre": "Hammond Welch",
+        "comentario": "Tweet:62",
+        "hashtags": [
+            "fugiat",
+            "enim",
+            "esse"
+        ],
+        "upvotes": 94,
+        "downvotes": 43
+        },
+        {
+        "nombre": "Julia Durham",
+        "comentario": "Tweet:63",
+        "hashtags": [
+            "mollit",
+            "elit",
+            "occaecat",
+            "ad",
+            "cupidatat",
+            "magna",
+            "dolore"
+        ],
+        "upvotes": 76,
+        "downvotes": 60
+        },
+        {
+        "nombre": "Vanessa Riley",
+        "comentario": "Tweet:64",
+        "hashtags": [
+            "incididunt",
+            "consectetur",
+            "nulla",
+            "minim",
+            "sunt",
+            "amet",
+            "reprehenderit",
+            "ut",
+            "nulla"
+        ],
+        "upvotes": 96,
+        "downvotes": 22
+        },
+        {
+        "nombre": "Antonia Rivers",
+        "comentario": "Tweet:65",
+        "hashtags": [
+            "minim",
+            "dolor",
+            "qui",
+            "consequat",
+            "sint",
+            "Lorem"
+        ],
+        "upvotes": 84,
+        "downvotes": 11
+        },
+        {
+        "nombre": "Luann Beck",
+        "comentario": "Tweet:66",
+        "hashtags": [
+            "est",
+            "ut",
+            "ea",
+            "eiusmod",
+            "esse",
+            "laboris",
+            "ipsum",
+            "velit"
+        ],
+        "upvotes": 99,
+        "downvotes": 16
+        },
+        {
+        "nombre": "Jackie Byers",
+        "comentario": "Tweet:67",
+        "hashtags": [
+            "occaecat",
+            "adipisicing",
+            "nostrud",
+            "tempor",
+            "et",
+            "laborum",
+            "laborum"
+        ],
+        "upvotes": 83,
+        "downvotes": 33
+        },
+        {
+        "nombre": "Catalina Spencer",
+        "comentario": "Tweet:68",
+        "hashtags": [
+            "veniam",
+            "sunt",
+            "amet",
+            "occaecat"
+        ],
+        "upvotes": 20,
+        "downvotes": 57
+        },
+        {
+        "nombre": "Castaneda Pitts",
+        "comentario": "Tweet:69",
+        "hashtags": [
+            "sit",
+            "enim",
+            "in",
+            "nisi",
+            "non",
+            "labore",
+            "ex",
+            "deserunt",
+            "id"
+        ],
+        "upvotes": 72,
+        "downvotes": 86
+        },
+        {
+        "nombre": "Klein Eaton",
+        "comentario": "Tweet:70",
+        "hashtags": [
+            "velit",
+            "ea",
+            "aliquip",
+            "qui",
+            "aliqua",
+            "labore"
+        ],
+        "upvotes": 14,
+        "downvotes": 43
+        },
+        {
+        "nombre": "Roberson Ferguson",
+        "comentario": "Tweet:71",
+        "hashtags": [
+            "incididunt"
+        ],
+        "upvotes": 44,
+        "downvotes": 85
+        },
+        {
+        "nombre": "Black Good",
+        "comentario": "Tweet:72",
+        "hashtags": [
+            "proident",
+            "qui"
+        ],
+        "upvotes": 51,
+        "downvotes": 85
+        },
+        {
+        "nombre": "Townsend Callahan",
+        "comentario": "Tweet:73",
+        "hashtags": [
+            "amet"
+        ],
+        "upvotes": 56,
+        "downvotes": 40
+        },
+        {
+        "nombre": "Hale Keller",
+        "comentario": "Tweet:74",
+        "hashtags": [
+            "esse"
+        ],
+        "upvotes": 32,
+        "downvotes": 11
+        },
+        {
+        "nombre": "Corina Hart",
+        "comentario": "Tweet:75",
+        "hashtags": [
+            "ex",
+            "eiusmod",
+            "dolore",
+            "nostrud",
+            "sint",
+            "laborum",
+            "aliquip",
+            "cillum"
+        ],
+        "upvotes": 21,
+        "downvotes": 30
+        },
+        {
+        "nombre": "Molina Sandoval",
+        "comentario": "Tweet:76",
+        "hashtags": [
+            "mollit",
+            "esse",
+            "consectetur",
+            "excepteur",
+            "enim",
+            "officia",
+            "in",
+            "in"
+        ],
+        "upvotes": 61,
+        "downvotes": 45
+        },
+        {
+        "nombre": "Patrice Velez",
+        "comentario": "Tweet:77",
+        "hashtags": [
+            "amet",
+            "ut",
+            "pariatur",
+            "eiusmod",
+            "cupidatat",
+            "velit",
+            "dolore",
+            "do"
+        ],
+        "upvotes": 31,
+        "downvotes": 46
+        },
+        {
+        "nombre": "Mccray Long",
+        "comentario": "Tweet:78",
+        "hashtags": [
+            "aute",
+            "eu",
+            "dolore",
+            "do",
+            "laborum",
+            "eiusmod"
+        ],
+        "upvotes": 75,
+        "downvotes": 59
+        },
+        {
+        "nombre": "Ines Casey",
+        "comentario": "Tweet:79",
+        "hashtags": [
+            "minim",
+            "est",
+            "dolor"
+        ],
+        "upvotes": 45,
+        "downvotes": 68
+        },
+        {
+        "nombre": "Vilma Lewis",
+        "comentario": "Tweet:80",
+        "hashtags": [
+            "irure",
+            "sint",
+            "sunt",
+            "elit",
+            "ex"
+        ],
+        "upvotes": 24,
+        "downvotes": 87
+        },
+        {
+        "nombre": "Wong Decker",
+        "comentario": "Tweet:81",
+        "hashtags": [
+            "aliquip",
+            "laborum",
+            "aliquip",
+            "sint",
+            "nostrud",
+            "elit",
+            "aliquip",
+            "nulla"
+        ],
+        "upvotes": 20,
+        "downvotes": 76
+        },
+        {
+        "nombre": "Pollard Frank",
+        "comentario": "Tweet:82",
+        "hashtags": [
+            "ea",
+            "est",
+            "irure",
+            "est",
+            "elit",
+            "mollit",
+            "reprehenderit",
+            "eiusmod"
+        ],
+        "upvotes": 70,
+        "downvotes": 62
+        },
+        {
+        "nombre": "Blanchard Sweeney",
+        "comentario": "Tweet:83",
+        "hashtags": [
+            "ipsum",
+            "sint",
+            "fugiat"
+        ],
+        "upvotes": 96,
+        "downvotes": 35
+        },
+        {
+        "nombre": "Andrews Price",
+        "comentario": "Tweet:84",
+        "hashtags": [
+            "ex",
+            "eiusmod",
+            "aliquip",
+            "consequat",
+            "esse",
+            "do",
+            "exercitation",
+            "fugiat",
+            "dolore"
+        ],
+        "upvotes": 60,
+        "downvotes": 77
+        },
+        {
+        "nombre": "Medina Sexton",
+        "comentario": "Tweet:85",
+        "hashtags": [
+            "sit",
+            "ut",
+            "dolore",
+            "laboris",
+            "nisi",
+            "voluptate",
+            "do",
+            "commodo"
+        ],
+        "upvotes": 53,
+        "downvotes": 24
+        },
+        {
+        "nombre": "Velasquez Pratt",
+        "comentario": "Tweet:86",
+        "hashtags": [
+            "adipisicing",
+            "duis",
+            "esse",
+            "incididunt",
+            "laboris",
+            "adipisicing"
+        ],
+        "upvotes": 96,
+        "downvotes": 88
+        },
+        {
+        "nombre": "Caitlin Warren",
+        "comentario": "Tweet:87",
+        "hashtags": [
+            "qui",
+            "nulla",
+            "nisi",
+            "in",
+            "tempor",
+            "fugiat",
+            "est",
+            "consectetur"
+        ],
+        "upvotes": 98,
+        "downvotes": 17
+        },
+        {
+        "nombre": "Duran Brady",
+        "comentario": "Tweet:88",
+        "hashtags": [
+            "id",
+            "eiusmod",
+            "et",
+            "nulla"
+        ],
+        "upvotes": 15,
+        "downvotes": 44
+        },
+        {
+        "nombre": "Spence Ayers",
+        "comentario": "Tweet:89",
+        "hashtags": [
+            "anim",
+            "sit",
+            "sint",
+            "pariatur",
+            "ea",
+            "nostrud",
+            "eu",
+            "ex",
+            "anim"
+        ],
+        "upvotes": 70,
+        "downvotes": 99
+        },
+        {
+        "nombre": "Berger Cummings",
+        "comentario": "Tweet:90",
+        "hashtags": [
+            "laboris",
+            "eu",
+            "nulla",
+            "laborum"
+        ],
+        "upvotes": 24,
+        "downvotes": 19
+        },
+        {
+        "nombre": "Barnes Boone",
+        "comentario": "Tweet:91",
+        "hashtags": [
+            "mollit",
+            "ullamco",
+            "quis"
+        ],
+        "upvotes": 90,
+        "downvotes": 18
+        },
+        {
+        "nombre": "Lillie Boyle",
+        "comentario": "Tweet:92",
+        "hashtags": [
+            "qui",
+            "occaecat",
+            "commodo",
+            "reprehenderit",
+            "irure"
+        ],
+        "upvotes": 86,
+        "downvotes": 47
+        },
+        {
+        "nombre": "Alison Perry",
+        "comentario": "Tweet:93",
+        "hashtags": [
+            "esse",
+            "velit"
+        ],
+        "upvotes": 94,
+        "downvotes": 14
+        },
+        {
+        "nombre": "Ophelia Kirby",
+        "comentario": "Tweet:94",
+        "hashtags": [
+            "magna",
+            "qui",
+            "culpa",
+            "deserunt",
+            "ea"
+        ],
+        "upvotes": 36,
+        "downvotes": 14
+        },
+        {
+        "nombre": "Erika Nunez",
+        "comentario": "Tweet:95",
+        "hashtags": [
+            "deserunt",
+            "laborum",
+            "non",
+            "commodo",
+            "culpa",
+            "dolor",
+            "nulla",
+            "occaecat",
+            "nisi"
+        ],
+        "upvotes": 80,
+        "downvotes": 89
+        },
+        {
+        "nombre": "Horne Walsh",
+        "comentario": "Tweet:96",
+        "hashtags": [
+            "cillum",
+            "nisi"
+        ],
+        "upvotes": 80,
+        "downvotes": 64
+        },
+        {
+        "nombre": "Tamera Watkins",
+        "comentario": "Tweet:97",
+        "hashtags": [
+            "sit",
+            "adipisicing",
+            "consectetur"
+        ],
+        "upvotes": 16,
+        "downvotes": 51
+        },
+        {
+        "nombre": "Bradley Burks",
+        "comentario": "Tweet:98",
+        "hashtags": [
+            "fugiat",
+            "cupidatat",
+            "proident",
+            "laboris",
+            "magna",
+            "adipisicing",
+            "ea",
+            "excepteur",
+            "labore"
+        ],
+        "upvotes": 12,
+        "downvotes": 100
+        },
+        {
+        "nombre": "Maria Melendez",
+        "comentario": "Tweet:99",
+        "hashtags": [
+            "reprehenderit",
+            "consequat",
+            "ut",
+            "do"
+        ],
+        "upvotes": 78,
+        "downvotes": 86
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+FROM node:15.6.0
+
+ENV MONGO_USERNAME=${MONGO_USERNAME}
+ENV MONGO_PASSWORD=${MONGO_PASSWORD}
+ENV MONGO_HOSTNAME=${MONGO_HOSTNAME}
+ENV MONGO_PORT=${MONGO_PORT}
+ENV MONGO_DB=${MONGO_DB}
+
+WORKDIR /app
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "build/index.js" ]
+

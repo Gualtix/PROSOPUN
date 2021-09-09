@@ -1,0 +1,11 @@
+json-generator.com
+[
+  '{{repeat(100)}}',
+	{
+		"nombre":'{{firstName()}} {{surname()}}',
+        "comentario":"Tweet:"+'{{index()}}',
+		"hashtags":['{{repeat(1,9)}}','{{lorem(1, "words")}}'],
+		"upvotes":'{{integer(10, 100)}}',
+		"downvotes":'{{integer(10, 100)}}'
+	}
+]
