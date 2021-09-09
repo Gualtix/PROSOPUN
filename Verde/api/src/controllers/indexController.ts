@@ -6,7 +6,7 @@ class IndexController {
     }
 
     public push_tweet(req: Request, res: Response) {
-        //console.log(req.body);
+        console.log(req.body);
         let result = {status:"ok",msg:"SUCCESSFUL DB QUERY",code:200};
                 try 
         {
@@ -15,7 +15,7 @@ class IndexController {
         } catch (error) 
         {
             result.status = "error";
-            result.msg    = error.message;
+            result.msg    = error.message;        
             result.code   = 500;    
         }
         res.json(result); 

@@ -10,12 +10,12 @@ class loadtest:
         f = open('../data.json',)
         data = json.load(f)
         cnt = 0
-        for i in data['tweets']:
+        for i in data:
             response = requests.post(f'{url}/push_tweet', json = i)
             json_obj = response.json()
             if(json_obj['status']=='error'):
                 cnt += 1
-        ndt = len(data['tweets'])
+        ndt = len(data)
         print(f'Test de Carga Finalizado: Tweets Enviados: {ndt}')
         print(f'Peticiones que Produjeron Error: {cnt}')   
         f.close() 

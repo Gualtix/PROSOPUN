@@ -6,7 +6,7 @@ class IndexController {
         res.json({ text: 'AYD2 API :V' });
     }
     push_tweet(req, res) {
-        //console.log(req.body);
+        console.log(req.body);
         let result = { status: "ok", msg: "SUCCESSFUL DB QUERY", code: 200 };
         try {
             res.json(result);
