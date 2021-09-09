@@ -6,8 +6,18 @@ class IndexController {
         res.json({ text: 'AYD2 API :V' });
     }
     push_tweet(req, res) {
-        console.log(req.body);
-        res.json(req.body);
+        //console.log(req.body);
+        let result = { status: "ok", msg: "SUCCESSFUL DB QUERY", code: 200 };
+        try {
+            res.json(result);
+            return;
+        }
+        catch (error) {
+            result.status = "error";
+            result.msg = error.message;
+            result.code = 500;
+        }
+        res.json(result);
     }
 }
 exports.indexController = new IndexController;
