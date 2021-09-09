@@ -14,7 +14,7 @@ class IndexController {
             return;
         } catch (error) 
         {
-            result.status = "error";
+            result.status = "error";   
             result.msg    = error.message;        
             result.code   = 500;    
         }
