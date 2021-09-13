@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.indexController = void 0;
 class IndexController {
     hola(req, res) {
-        res.json({ text: 'AYD2 API :V' });
+        res.json({ text: 'API TEST: UBUNTU' });
     }
     push_tweet(req, res) {
         console.log(req.body);

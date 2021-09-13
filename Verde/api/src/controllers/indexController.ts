@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 class IndexController {
     public hola(req: Request, res: Response) {
-        res.json({text: 'AYD2 API :V'});
+        res.json({text: 'API TEST: UBUNTU'});
     }
 
     public push_tweet(req: Request, res: Response) {
@@ -21,4 +21,5 @@ class IndexController {
         res.json(result); 
     }
 }
+
 export const indexController = new IndexController;    

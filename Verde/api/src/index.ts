@@ -3,8 +3,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 //import { User } from './models/carpeta';
 
-import carpetaRoutes from './routes/carpetaRoutes';
-import archivoRoutes from './routes/archivoRoutes';
 import DBConn from './database/mog';
 import indexRoutes from './routes/indexRoutes';
 
@@ -39,13 +37,10 @@ class Server{
 
     public async DBTest(): Promise<any>{
         
-        
     }      
 
     routes(): void{
         this.app.use('/',indexRoutes);
-        //this.app.use('/carpeta',carpetaRoutes);
-        //this.app.use('/archivo',archivoRoutes);
     }
 
     start(): void
@@ -54,7 +49,6 @@ class Server{
             console.log('Server on Port:',this.app.get('port'));
         });
     }
-
 }
 
 const server = new Server();

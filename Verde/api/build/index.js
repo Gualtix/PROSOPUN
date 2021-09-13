@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
+//import { User } from './models/carpeta';
 const mog_1 = __importDefault(require("./database/mog"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 class Server {
@@ -44,8 +45,6 @@ class Server {
     }
     routes() {
         this.app.use('/', indexRoutes_1.default);
-        //this.app.use('/carpeta',carpetaRoutes);
-        //this.app.use('/archivo',archivoRoutes);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

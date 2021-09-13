@@ -1,6 +1,5 @@
 package main
 
-
 import (
 	"bytes"
 	"encoding/json"
@@ -11,20 +10,6 @@ import (
     "os"
  )
  
-/*
- import (
-
-
-
-	"io/ioutil"
-	"encoding/json"
-
-    "fmt"
-    "os"
- )
- */
-
-
  var url="http://localhost:3000/push_tweet"
 
  type Tweet struct {
@@ -35,12 +20,7 @@ import (
     Downvotes int
 }
 
-/*
-		"hashtags":tws[i].Hashtags,
-		"upvotes":tws[i].Upvotes,
-		"downvotes":tws[i].Downvotes,
-		*/
- 
+
  func main() {
 
 	//pwd, _ := os.Getwd()
@@ -59,53 +39,31 @@ import (
     json.Unmarshal([]byte(byteValue), &tws)
 
 	for i := 0; i < len(tws); i++ {
-		fmt.Println(tws[i].Nombre)
 
 		postBody, _ := json.Marshal(tws[i])
-
 		responseBody := bytes.NewBuffer(postBody)
-
 		resp, err := http.Post(url, "application/json", responseBody)
 
 		//Handle Error
 		if err != nil {
 			log.Fatalf("An Error Occured %v", err)
 		}
-		
+
 		defer resp.Body.Close()
+
 		//Read the response body
 		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
+		if err != nil 
+		{
 			log.Fatalln(err)
 		}
-		sb := string(body)
-		log.Printf(sb)
-			}
+		if(body.status == "error")
+		{
 
-	/*
-
-	for i := 0; i < len(tws); i++ {
-
-		//responseBody := bytes.NewBuffer(tws)
-
-		resp, err := http.Post(url+"/push_tweet", "application/json", json.Marshal(tws[i]))
-
-		if err != nil {
-			log.Fatalf("An Error Occured %v", err)
 		}
-
-		defer resp.Body.Close()
-
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			log.Fatalln(err)
-		}
-
-		sb := string(body)
-		log.Printf(sb)
+		//sb := string(body)
+		log.Printf(body.status)
 	}
 
- 	//Encode the data
-	*/ 
-		
+
  }
