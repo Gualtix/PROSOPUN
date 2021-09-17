@@ -1,4 +1,6 @@
 .left{
     margin-top:100px;
     margin-left: 100px;
+    margin-right: 20px;
+    align-items: center;
 }

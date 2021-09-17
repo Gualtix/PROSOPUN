@@ -2,9 +2,11 @@ import Card from "./Card";
 import React from 'react';
 import CompDrawer from './CompDrawer'
 import { BrowserRouter  as Router,Route,Switch} from "react-router-dom";
-import Reportes from "../pages/Reportes";
+
+//import {Circular} from "../pages/Reportes";
 import './Menu.css'
 import VistaNewMsg from "../pages/VistaNewMsg";
+import Reportes from "../pages/Reportes";
 
 export default function MaterialUI (){
     return(

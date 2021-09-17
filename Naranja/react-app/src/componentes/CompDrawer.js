@@ -17,6 +17,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 
 import "./Menu.css"
 
@@ -145,7 +147,7 @@ export default function MiniDrawer() {
             <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
             {/*<ListItem button key={text.name} Link to="/Reportes">*/}
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <ListAltIcon /> : <InsertChartIcon />}
               </ListItemIcon>
               <ListItemText primary={text.name} />
             </ListItem>

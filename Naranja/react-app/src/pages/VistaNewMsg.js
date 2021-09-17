@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const VistaNewMsg = () =>{
     return(
-        
+        //aqui deberia tratar con un map para poder reutilizar el grid item con la info
         <div class = "left" >
             <Grid container spacing = {2} columns = {35} >
                     <Grid item xs={8}>
