@@ -17,21 +17,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Card from "./Card";
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+
 import "./Menu.css"
 
 const drawerWidth = 240;
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -152,8 +141,9 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {[{name:'Reporte 1',url:"index.html"}, {name:'Reporte 2',url:"https://www.google.com/"}, {name:'Reporte 3',url:"index"}].map((text, index) => (
+          {[{name:'Reporte 1',url:"index.html"}, {name:'Reporte 2',url:"/Reportes"}, {name:'Reporte 3',url:"/VistaNewsMsgs"}].map((text, index) => (
             <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
+            {/*<ListItem button key={text.name} Link to="/Reportes">*/}
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
@@ -163,56 +153,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-
-        <Grid container spacing={2} columns={35}>
-          <Grid item xs={8}>
-            <Item>
-            <Card /> 
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-            <Card />
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-            <Card />
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-            <Card />
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-            <Card />
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-            <Card />
-            </Item>
-          </Grid>
-        </Grid>
-        
-        
-        
-
-        
-
-        
-
-        <Typography paragraph>
-          Contenido xxxxxx primer parrafo
-        </Typography>
-        <Typography paragraph>
-          Contenido 2 segundo parrafo
-        </Typography>
-      </Box>
+      
     </Box>
   );
 }
