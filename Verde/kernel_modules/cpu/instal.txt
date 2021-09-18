@@ -1,0 +1,16 @@
+Makefile
+
+obj-m += cpu.o
+
+all:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+    
+
+sudo make
+
+sudo insmod cpu.ko
+sudo rmmod cpu
+sudo dmesg -c
