@@ -1,7 +1,8 @@
 import requests
 import json
 
-url = 'http://localhost:3000'
+#url = 'http://localhost:3000'
+url = 'http://35.209.199.1:80'
 
 class loadtest:
 
