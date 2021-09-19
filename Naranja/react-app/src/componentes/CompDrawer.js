@@ -143,7 +143,7 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {[{name:'Reporte 1',url:"index.html"}, {name:'Reporte 2',url:"/Reportes"}, {name:'Reporte 3',url:"/VistaNewsMsgs"}].map((text, index) => (
+          {[{name:'Home',url:"home"}, {name:'Graphics',url:"/Reportes"},{name:'News/Messages',url:"/VistaNewsMsgs"}].map((text, index) => (
             <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
             {/*<ListItem button key={text.name} Link to="/Reportes">*/}
               <ListItemIcon>
