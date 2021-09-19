@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import './VistaNewMsg.css'
 
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),

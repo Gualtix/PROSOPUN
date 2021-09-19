@@ -1,0 +1,52 @@
+{
+    "twits":[
+        {
+            "nombre": "Leonel Aguilar",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "SABER",
+            "upvotes": 100,
+            "downvotes": 30
+        },
+        {
+            "nombre": "Leonel Aguilar",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "24/07/2021",
+            "upvotes": 100,
+            "dowvotes": 30
+        },
+        {
+            "nombre": "Migdalia Mateo",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "24/07/2021",
+            "upvotes": 1000,
+            "downvotes": 200
+        },
+        {
+            "nombre": "Gerardo Luna",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "24/07/2021",
+            "upvotes": 125,
+            "downvotes": 2
+        },
+        {
+            "nombre": "Maria Vega",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "24/07/2021",
+            "upvotes": 582,
+            "downvotes": 75
+        },
+        {
+            "nombre": "Mario Alcantara",
+            "Comentario":"Comentario numero uno de todos los comentarios",
+            "fecha":"25/05/2021",
+            "hastags": "24/07/2021",
+            "upvotes": 75,
+            "downvotes": 582
+        }
+    ]
+}
