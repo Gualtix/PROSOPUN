@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
+import data from "../helpers/data.json";
+
 import CanvasJSReact from '../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+function ElementoLista(){
+    
+    
+}
  
 class StackedBarChart extends Component {
 	constructor() {
 		super();
 		this.toggleDataSeries = this.toggleDataSeries.bind(this);
 	}
+    votosUp = ()=>{
+
+        return data.twits.map((voto) =>{
+            return { x: voto.fecha, y: parseInt(voto.upvotes) };
+          })
+    }
+    votosDown = ()=>{
+        return data.twits.map((voto) =>{
+            return { x: voto.fecha, y: parseInt(voto.dowvotes) };
+          })
+    }
+
+
 	toggleDataSeries(e) {
 		if(typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
 			e.dataSeries.visible = false;
@@ -70,6 +89,7 @@ class StackedBarChart extends Component {
 		return (
 		<div>
 			<h2>UPVOTES VR DOWNVOTES</h2>
+            {ElementoLista}
 			<CanvasJSChart options = {options} 
 				onRef={ref => this.chart = ref}
 			/>

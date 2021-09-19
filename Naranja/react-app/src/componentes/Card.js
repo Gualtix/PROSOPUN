@@ -5,8 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
-export default function MediaCard() {
+
+export default function MediaCard(props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
      { /*<CardMedia
@@ -19,17 +22,23 @@ export default function MediaCard() {
       />
       */}
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Noticias
+        <Typography gutterBottom variant="h6" component="div">
+          {props.nombre}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography variant="h7" color="text.secondary">
+          {props.hastags}
+        </Typography>
+        <hr />
+        <Typography variant="body2" color="text.primary">
+          {props.comentario}
+        </Typography>
+        <Typography variant="h7" color="text.secondary">
+          {props.fecha}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small"><ThumbUpIcon /> {props.upvotes} upvotes</Button>
+        <Button size="small"><ThumbDownIcon /> {props.downvotes} downvotes</Button>
       </CardActions>
     </Card>
   );
