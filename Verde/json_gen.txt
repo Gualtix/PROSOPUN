@@ -3,7 +3,8 @@ json-generator.com
   '{{repeat(100)}}',
 	{
 		"nombre":'{{firstName()}} {{surname()}}',
-        "comentario":"Tweet:"+'{{index()}}',
+      "comentario":"Tweet:"+'{{index()}}',
+      "fecha":'{{integer(01, 31)}}'+"/"+'{{integer(01,12)}}'+"/2021",
 		"hashtags":['{{repeat(1,9)}}','{{lorem(1, "words")}}'],
 		"upvotes":'{{integer(10, 100)}}',
 		"downvotes":'{{integer(10, 100)}}'
