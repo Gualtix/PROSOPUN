@@ -78,23 +78,38 @@
     <div class="transparenty">
       <form method="POST" action="/" name="formulary" target="_blank">
         <input
-          name="name"
+          name="guardados"
           class="ui-input-text"
-          type="text"
-          value=""
+          type="number"
+          value=0
           required
-          placeholder="Whats your name?"
+          placeholder="Cantidad de registros almacenados?"
         />
-        <textarea
-          name="msg"
+        
+        <input
+          name="api"
           class="ui-input-text"
           type="text"
           value=""
           required
-          multiple
-          placeholder="Tell anything to the world..."
-          style="min-height: 100px"
-        ></textarea>
+          placeholder=" Desde que api?"
+        />
+        <input
+          name="tiempoDeCarga"
+          class="ui-input-text"
+          type="number"
+          value=0
+          required
+          placeholder="Tiempo de la transicion en segundo?"
+        />
+        <input
+          name="bd"
+          class="ui-input-text"
+          type="text"
+          value=""
+          required
+          placeholder="nombre de la base de datos"
+        />
         <input type="submit" class="myButton" value="SEND" />
       </form>
 

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	// Para oir a peticiones GET Y POST
 	"net/http"
@@ -79,9 +80,13 @@ func publish(msg string) error {
 // Esta estructura almacenara la forma en la que se enviaran los datos al servidor
 type Message struct {
 	// Nombre de la persona que envia el mensaje
-	Name string
+
+	Api           string
+	Guardados     int
+	TiempoDeCarga int
+	DB            string
 	// Cuerpo del mensaje
-	Msg string
+	//Msg string
 }
 
 // Creamos un server sencillo que unicamente acepte peticiones GET y POST a '/'
@@ -108,12 +113,19 @@ func http_server(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Obtener el nombre enviado desde la forma
-		name := r.FormValue("name")
+
+		//name := r.FormValue("name")
 		// Obtener el mensaje enviado desde la forma
-		msg := r.FormValue("msg")
+		//msg := r.FormValue("msg")
+		guard := r.FormValue("guardados")
+		guard2, _ := strconv.Atoi(guard)
+		ap := r.FormValue("api")
+		tiem := r.FormValue("tiempoDeCarga")
+		tiem2, _ := strconv.Atoi(tiem)
+		bda := r.FormValue("bd")
 
 		// Crear un objeto JSON con los datos enviados desde la forma
-		message, err := json.Marshal(Message{Name: name, Msg: msg})
+		message, err := json.Marshal(Message{Api: ap, Guardados: guard2, TiempoDeCarga: tiem2, DB: bda})
 		// Existio un error generando el objeto JSON
 		if err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
@@ -125,7 +137,7 @@ func http_server(w http.ResponseWriter, r *http.Request) {
 
 		// Enviamos informacion de vuelta, indicando que fue generada la peticion
 		fmt.Fprintf(w, "¡Mensaje Publicado!\n")
-		fmt.Fprintf(w, "Name = %s\n", name)
+		fmt.Fprintf(w, "BaseDeDatos = %s\n", bda)
 		fmt.Fprintf(w, "Message = %s\n", message)
 		fmt.Fprintln(w, string(message))
 

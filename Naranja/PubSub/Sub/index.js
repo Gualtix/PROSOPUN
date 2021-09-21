@@ -34,12 +34,23 @@ const messageReader = async message => {
     // Con esto marcamos el acknowledgement de que recibimos el mensaje
     // Si no marcamos esto, los mensajes se nos seguirán enviando aunque ya los hayamos leído!
     message.ack();
+    
+    
 
     try {
         console.log(`Agregando mensaje al servidor...`);
         const jsonMessage = JSON.parse(message.data) || {};
         const request_body = { name: jsonMessage.Name || jsonMessage.name || "Anonimo", msg: jsonMessage.Msg || jsonMessage.msg || "Empty" };
-        //await axios.post(process.env.API_URL, request_body);
+     
+        const io = require("socket.io-client");
+
+        const socket = io('http://localhost:3001/');
+
+        socket.emit('clientEnvioMsg',{
+            name: jsonMessage.Name || jsonMessage.name || "Anonimo", 
+            msg: jsonMessage.Msg || jsonMessage.msg || "Empty" 
+        })
+        ///await axios.post(process.env.API_URL, request_body);
     }
     catch (e) {
         console.log(`Error al realizar POST ${e.message}`);

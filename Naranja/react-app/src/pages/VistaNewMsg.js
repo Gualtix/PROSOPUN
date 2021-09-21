@@ -1,5 +1,6 @@
 
-import * as React from 'react';
+
+import React,{useEffect,useState} from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -8,19 +9,24 @@ import Card from '../componentes/Card'
 import './VistaNewMsg.css'
 import data from "../helpers/data.json";
 import MediaCard from '../componentes/Card';
+import socket from "../componentes/Socket";
+
 
 function ElementoLista(props){
+
+    
+
     return(
         
         <Grid item xs={8}>
             <Item>
                 <MediaCard
-                nombre ={ props.el.nombre}
-                comentario = {props.el.Comentario}
+                nombre ={ props.el.humano}
+                comentario = {props.el.comentario}
                 fecha = {props.el.fecha}
-                hastags = {props.el.hastags} 
-                upvotes = {props.el.upvotes}
-                downvotes = {props.el.downvotes}
+                hastags = {props.el.id} 
+                upvotes = {props.el.up}
+                downvotes = {props.el.down}
                 />
             
             </Item>
@@ -39,22 +45,45 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 const VistaNewMsg = () =>{
+    const [contenido,setDatos] = useState(
+        {'contenido':[{
+            "humano": "",
+            "comentario":"",
+            "fecha":"",
+            "id": "",
+            "up": 0,
+            "down": 0
+        }]}
+    );
+    
+     useEffect(()=>{
+        socket.on('contenido',contenido =>{
+           setDatos(contenido) 
+        });
+    },[contenido]);
+   
+
+
     return(
+        
         //aqui deberia tratar con un map para poder reutilizar el grid item con la info
         <div class = "left" >
+            {console.log(contenido)}
             <Grid container spacing = {2} columns = {35} >
                  
-                 {
-                     data.twits.slice(0).reverse().map((el)=>(
+                 { //text.url === "home"? "\\":text.url
+                 
+                     contenido.contenido.slice(0).reverse().map((el)=>(
                          <ElementoLista el ={el} />
                      ))
                  }
 
-                <Grid item xs={8}>
+                {/*
+                    <Grid item xs={8}>
                     <Item>
                     <Card />
                     </Item>
-                </Grid>
+                </Grid>*/}
                 
             </Grid>
             <br />
