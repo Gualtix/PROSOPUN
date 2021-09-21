@@ -10,7 +10,7 @@ import json
 import pymysql
 from app import app
 from db_config import mysql
-from flask import jsonify
+from flask import jsonify,make_response
 from flask import flash, request
 
 @app.route('/users')
@@ -82,12 +82,19 @@ def Cargando():
 			except Exception as q:
 				print(q, ' YA ESTA ESTA ASIGNACION')
 
-		resp = jsonify('Tweet Aniadido!---')
-		resp.status_code = 200
-		return resp
+		response = make_response(jsonify({"status": "ok","msg":"SUCCESSFUL DB QUERY","code":200}),200,)
+		response.headers["Content-Type"] = "application/json"
+		return response
+
+
+		#resp.status_code = 200
+		#return resp
 	except Exception as e:
 		print(e, 'ERROR en la carga de base de datos')
-		return 'ERROR!'
+		response = make_response(jsonify({"status": "error","msg":str(e),"code":500}),500,)
+		response.headers["Content-Type"] = "application/json"
+		return response
+		#return 'ERROR!'
 	finally:
 		cursor.close()
 		conn.close()
