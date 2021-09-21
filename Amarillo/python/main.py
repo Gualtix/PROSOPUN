@@ -15,6 +15,7 @@ from flask import flash, request
 
 @app.route('/users')
 def users():
+	
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -26,9 +27,18 @@ def users():
 	except Exception as e:
 		print(e)
 
-@app.route("/IniciarCarga")
+@app.route("/IniciarCarga",methods=['POST'])
 def Cargando():
+	request_data = request.get_json()
+	registro = request_data['registro']
+	#print(registro)
+
+	#resp = jsonify('Tweet Aniadido!---')
+	#resp.status_code = 200
+	#return resp
 	try:
+		
+		'''
 		registro = {
 			"nombre": "Delacruz Bowers",
 		  	"comentario": "Tweet:0",
@@ -42,6 +52,9 @@ def Cargando():
 		  	"upvotes": 15,
 		  	"downvotes": 86
 		}
+		'''
+
+		
 
 		sql = "insert into noti_tweet (humano, comentario, fecha, up, down)values(%s, %s, STR_TO_DATE(REPLACE(%s,'/','.') ,GET_FORMAT(date,'EUR')), %s, %s);"
 		data = (registro['nombre'], registro['comentario'], registro['fecha'], registro['upvotes'], registro['downvotes'])
