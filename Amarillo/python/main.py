@@ -30,7 +30,7 @@ def users():
 @app.route("/IniciarCarga",methods=['POST'])
 def Cargando():
 	request_data = request.get_json()
-	registro = request_data['registro']
+	registro = request_data
 	#print(registro)
 
 	#resp = jsonify('Tweet Aniadido!---')

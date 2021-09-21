@@ -12,7 +12,7 @@ class loadtest:
         data = json.load(f)
         cnt = 0
         for i in data:
-            response = requests.post(f'{url}/push_tweet', json = i)
+            response = requests.post(f'{url}/IniciarCarga', json = i)
             json_obj = response.json()
             if(json_obj['status']=='error'):
                 cnt += 1
