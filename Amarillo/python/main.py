@@ -12,6 +12,7 @@ from app import app
 from db_config import mysql
 from flask import jsonify,make_response
 from flask import flash, request
+from google.cloud import pubsub_v1
 
 #2 variables globales, el json con los datos y el objeto para la notifiacion
 
@@ -100,15 +101,46 @@ def Publica():
 
 @app.route("/FinalizarCarga", methods=['GET'])
 def Fin():
+	'''
 	global counter
 	global notif
+	'''
 	notif = {
 		"guardados": 0,
 		"api": "python",
 		"tiempoDeCarga": 0,
 		"bd": "CloudSQL"
 	}
-	counter = 0;
+	
+	counter = 0
+
+	project_id = "charged-sled-325502"
+	topic_id = "so1" 
+	
+	'''
+	publisher = pubsub_v1.PublisherClient()
+	topic_path = publisher.topic_path(project_id, topic_id)
+
+	topic = publisher.create_topic(request={"name": topic_path})
+
+	
+
+	print(f"Created topic: {topic.name}")
+	'''
+
+
+
+	publisher = pubsub_v1.PublisherClient()
+	topic_name = 'projects/{project_id}/topics/{topic}'.format(
+		project_id='charged-sled-325502',
+		topic='so1',  
+	)
+
+	msg = json.dumps(notif)
+	data = msg.encode("utf-8")
+	future = publisher.publish(topic_name, data, spam='eggs')
+	future.result()
+
 	return jsonify(notif)
 
 @app.route("/")
