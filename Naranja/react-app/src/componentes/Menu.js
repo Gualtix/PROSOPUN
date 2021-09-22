@@ -1,11 +1,12 @@
 
+import React, {useEffect, useState} from "react";
 import CompDrawer from './CompDrawer'
 import { BrowserRouter  as Router,Route,Switch} from "react-router-dom";
 import './Menu.css'
 import VistaNewMsg from "../pages/VistaNewMsg";
 import Reportes from "../pages/Reportes";
 import socket from "./Socket";
-import React, {useEffect, useState} from "react";
+
 
 
 /*function Menu(){
@@ -18,23 +19,30 @@ import React, {useEffect, useState} from "react";
 }*/
 
 export default function MaterialUI (){
-    const [serverEnvioMsg,setMsgs] = useState([]);
+ /*   const [serverEnvioMsg,setMsgs] = useState([]);
     
      useEffect(()=>{
         socket.on('serverEnvioMsg',serverEnvioMsg =>{
             setMsgs(serverEnvioMsg) 
         })
     },[serverEnvioMsg])
+*/
 
-    const [ReEnvio,setReEnvio] = useState([]);
-    
+    const [ReEnvio,setReEnvio] = useState( "" );
      useEffect(()=>{
+         
         socket.on('ReEnvio',ReEnvio =>{
             setReEnvio(ReEnvio) 
         })
-    },[ReEnvio])
+    },[socket])//aqui tenia [ReEnvio]
 
-    
+    const [consulta1,setConsulta1] = useState( "" );
+     useEffect(()=>{
+         
+        socket.on('consulta1',consulta1 =>{
+            setConsulta1(consulta1) 
+        })
+    },[socket])//aqui tenia [ReEnvio]
     
 
     return(
@@ -42,7 +50,9 @@ export default function MaterialUI (){
         {
             console.log('mensaje'),
             console.log(ReEnvio),
-        console.log(serverEnvioMsg)}
+            console.log('la consulta 1 es:'),
+            console.log(consulta1)
+        }
       <CompDrawer />
       <Router>
                 <Switch>
@@ -52,6 +62,23 @@ export default function MaterialUI (){
                     <p>
                         Bienvenidios a la pagina de inicio <br/>
                     </p>
+
+                    
+            
+            {
+               ( ReEnvio === "" ? " " : 
+                ( ReEnvio.ReEnvio.map((el)=>(
+                     <>
+                    <h4>API: </h4> {el.Api}
+                    <h4>GUARDADOS: </h4> {el.Guardados}
+                    <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
+                    <h4>BASE DE DATOS: </h4> {el.DB}
+                    </>
+                 ))))
+                 }
+
+                    
+                    
                     
                     
                 </Route>

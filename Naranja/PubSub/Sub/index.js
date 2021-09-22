@@ -40,15 +40,17 @@ const messageReader = async message => {
     try {
         console.log(`Agregando mensaje al servidor...`);
         const jsonMessage = JSON.parse(message.data) || {};
-        const request_body = { name: jsonMessage.Name || jsonMessage.name || "Anonimo", msg: jsonMessage.Msg || jsonMessage.msg || "Empty" };
-     
+        //const request_body = { name: jsonMessage.Name || jsonMessage.name || "Anonimo", msg: jsonMessage.Msg || jsonMessage.msg || "Empty" };
+        console.log(jsonMessage)
         const io = require("socket.io-client");
 
         const socket = io('http://localhost:3001/');
 
         socket.emit('clientEnvioMsg',{
-            name: jsonMessage.Name || jsonMessage.name || "Anonimo", 
-            msg: jsonMessage.Msg || jsonMessage.msg || "Empty" 
+            Api: jsonMessage.api,// || jsonMessage.Api || "Anonimo", 
+            Guardados: jsonMessage.guardados,// || jsonMessage.Guardados || "Empty" ,
+            TiempoDeCarga: jsonMessage.TiempoDeCarga,// || jsonMessage.TiempoDeCarga || "Empty" ,
+            DB: jsonMessage.bd,// || jsonMessage.DB || "Empty" 
         })
         ///await axios.post(process.env.API_URL, request_body);
     }
