@@ -110,32 +110,110 @@ io.sockets.on('connection', function (socket) {
   .catch(err => console.log(  err));
 
 });*/
-
 /*
+//CANTIDAD DE NOTICIAS EN LA BASE DE DATOS
 io.sockets.on('connection', function (socket) {
-  //socket.emit('greeting', 'Hello');
-  console.log("dentro de consulta")
- // var uid = data['uid'];
-  var q = "SELECT * FROM noti_tweet WHERE id = 0 ORDER BY id DESC LIMIT 1";
-
+  var q = "SELECT COUNT(id) as CountNew FROM noti_tweet";
   database.query(q)
   .then(row => {
       data1 = row;
       console.log("este es la respuesta")
+      console.log(data1)
       console.log(row)
-      io.sockets.emit('consulta1', {consulta: [...data1]});
+      io.sockets.emit('consulta1', {consulta: data1});
       //console.log("entro aca");
   })
-  
   .catch(err => console.log(  err));
-
 });
 */
+/*
+//CUENTA LOS HASHTAG EN LA BASE DE DATOS
+io.sockets.on('connection', function (socket) {
+    var q = "SELECT COUNT(nombre) as CountHash FROM hashtag";
+    database.query(q)
+    .then(row => {
+        data1 = row;
+        console.log("este es la respuesta")
+        console.log(data1)
+        console.log(row)
+        io.sockets.emit('consulta1', {consulta: data1});
+        //console.log("entro aca");
+    })
+    .catch(err => console.log(  err));
+  });*/
+
+  io.sockets.on('connection', function (socket) {
+//CUENTA DE TOTAL DE NOTICIAS
+    var q = "SELECT COUNT(id) as CountNew FROM noti_tweet";
+  database.query(q)
+  .then(row => {
+      data1 = row;
+    /*  console.log("este es la respuesta")
+      console.log(data1)
+      console.log(row)*/
+      io.sockets.emit('consulta0', {consulta: data1});
+      //console.log("entro aca");
+  })
+  .catch(err => console.log(  err));
+  
+  //CUENTA DE HASTAGS
+    var q = "SELECT COUNT(nombre) as CountHash FROM hashtag";
+    database.query(q)
+    .then(row => {
+        data1 = row;
+        /*console.log("este es la respuesta")
+        console.log(data1)
+        console.log(row)*/
+        io.sockets.emit('consulta1', {consulta: data1});
+        //console.log("entro aca");
+    })
+    .catch(err => console.log(  err));
+
+    //CUENTA DE UP VOTES
+   var q = "SELECT SUM(up) as CountUp FROM noti_tweet";
+    database.query(q)
+    .then(row => {
+        data1 = row;
+        /*console.log("este es la respuesta")
+        console.log(data1)
+        console.log(row)*/
+        io.sockets.emit('consulta2', {consulta: data1});
+        //console.log("entro aca");
+    })
+    .catch(err => console.log(  err));
+
+    //TOP 5 DE HASHTAGS
+    var q = "SELECT a.hashtag, SUM(nt.up) as total FROM hashtag h,noti_tweet nt,asignacion a "+
+            "WHERE h.nombre = a.hashtag AND nt.id =a.id_noti_tweet "+
+            "GROUP BY (a.hashtag) ORDER BY total DESC LIMIT 5";
+            
+    database.query(q)
+    .then(row => {
+        data1 = row;
+        /*console.log("este es la respuesta")
+        console.log(data1)
+        console.log(row)*/
+        io.sockets.emit('top5', {top: [...data1]});
+        //console.log("entro aca");
+    })
+    .catch(err => console.log(  err));
+
+    var q = "SELECT DISTINCT fecha, SUM(up) as ups, SUM(down) as down FROM noti_tweet "
+       +" GROUP BY (fecha)";
+    database.query(q)
+    .then(row => {
+        data1 = row;
+        console.log("este es la respuesta barras")
+        console.log(data1)
+        //console.log(row)
+        io.sockets.emit('barras', {barras: data1});
+    })
+    .catch(err => console.log(  err));
+  });
+  
 
 io.sockets.on('connection', (socket) => {
     id = socket;
-    console.log('entro');
-    console.log(socket.id)
     database.table('noti_tweet') //nombre de la tabla
         .withFields(['id','humano', 'comentario', 'fecha', 'up','down'])//campos de la tabla, etc
         .sort({id: -1})//ordenado por id en orden descendente +1 seria ascendente
@@ -145,6 +223,20 @@ io.sockets.on('connection', (socket) => {
         .then(contenido => {
             data = contenido;
             io.sockets.emit('contenido', {contenido: [...data]});
+            //console.log("entro aca");
+        })
+        
+        .catch(err => console.log(  err));
+
+        database.table('asignacion') //nombre de la tabla
+        .withFields(['hashtag','id_noti_tweet'])//campos de la tabla, etc
+        //.sort({id: -1})//ordenado por id en orden descendente +1 seria ascendente
+        .getAll()//se obtienen todos los datos
+        //.limit(size=2){size:2} limite o top
+        
+        .then(contenido => {
+            data = contenido;
+            io.sockets.emit('hashs', {hashs: [...data]});
             //console.log("entro aca");
         })
         

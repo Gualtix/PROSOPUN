@@ -13,7 +13,19 @@ import socket from "../componentes/Socket";
 
 
 function ElementoLista(props){
-
+    const [hashs,setHash] = useState("");
+    useEffect(()=>{
+      socket.on('hashs',hashs =>{
+        setHash(hashs) 
+      });
+  },[hashs]);
+  var hashss = ""
+  hashss = " "
+  hashss = 
+    (hashs === "" ? " " : (hashs.hashs.map((h)=>{
+        return(
+        props.el.id === h.id_noti_tweet) ? (hashss + h.hashtag + " " ) : " "      
+    })))  
     
 
     return(
@@ -24,7 +36,7 @@ function ElementoLista(props){
                 nombre ={ props.el.humano}
                 comentario = {props.el.comentario}
                 fecha = {props.el.fecha}
-                hastags = {props.el.id} 
+                hastags = {hashss} 
                 upvotes = {props.el.up}
                 downvotes = {props.el.down}
                 />
@@ -43,6 +55,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
     color: theme.palette.text.secondary,
   }));
+
+
 
 const VistaNewMsg = () =>{
     const [contenido,setDatos] = useState(
