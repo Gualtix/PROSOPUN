@@ -5,6 +5,13 @@ pip install flask-mysql
 flask run
 los imports deben estar a color y no grises, si no, no funcioana la api
 '''
+import azure.cosmos.documents as documents
+import azure.cosmos.cosmos_client as cosmos_client
+import azure.cosmos.exceptions as exceptions
+from azure.cosmos.partition_key import PartitionKey
+import datetime
+import config
+
 import os
 import json
 import pymysql, time
@@ -16,6 +23,10 @@ from google.cloud import pubsub_v1
 
 #2 variables globales, el json con los datos y el objeto para la notifiacion
 
+HOST = config.settings['host']
+MASTER_KEY = config.settings['master_key']
+DATABASE_ID = config.settings['database_id']
+CONTAINER_ID = config.settings['container_id']
 datos = [];
 notif = {
 			"guardados": 0,
@@ -25,6 +36,50 @@ notif = {
 		}
 counter = 0;
 tiempo = 0;
+
+def azureDB(newReg, Datos):
+	client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY}, user_agent="CosmosDBPythonQuickstart",
+										user_agent_overwrite=True)
+	try:
+		# setup database for this sample
+		try:
+			db = client.create_database(id=DATABASE_ID)
+			print('Database with id \'{0}\' created'.format(DATABASE_ID))
+
+		except exceptions.CosmosResourceExistsError:
+			db = client.get_database_client(DATABASE_ID)
+			print('Database with id \'{0}\' was found'.format(DATABASE_ID))
+
+		# setup container for this sample
+		try:
+			container = db.create_container(id=CONTAINER_ID, partition_key=PartitionKey(path='/partitionKey'))
+			print('Container with id \'{0}\' created'.format(CONTAINER_ID))
+
+		except exceptions.CosmosResourceExistsError:
+			container = db.get_container_client(CONTAINER_ID)
+			print('Container with id \'{0}\' was found'.format(CONTAINER_ID))
+
+		#cale_container(container)
+		order1 = {'id': str(newReg),
+		  	"nombre": Datos['nombre'],
+		  	"comentario": Datos['comentario'],
+		  	"fecha": Datos['fecha'],
+		  	"hashtags": Datos['hashtags'],
+		  	"upvotes": Datos['upvotes'],
+		  	"downvotes": Datos['downvotes']
+        }
+		container.create_item(body=order1)
+		'''try:
+            #client.delete_database(db)
+
+        except exceptions.CosmosResourceNotFoundError:
+            pass'''
+
+	except exceptions.CosmosHttpResponseError as e:
+		print('\nrun_sample has caught an error. {0}'.format(e.message))
+
+	finally:
+		print("\nrun_sample done")
 
 @app.route('/IniciarCarga', methods=['POST'])
 def Cargando():
@@ -52,6 +107,7 @@ def Publica():
 			cursor.execute("select id from noti_tweet order by id desc limit 1;")
 			rows = cursor.fetchall()
 			nuevoReg = rows[0]['id']
+			azureDB(nuevoReg, registro)
 			sql2 = "insert into hashtag (nombre) values(%s);"
 			sql3 = "insert into asignacion (id_noti_tweet, hashtag) values(%s, %s)"
 			for hash in registro['hashtags']:
