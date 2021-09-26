@@ -1,6 +1,5 @@
-import React, { Component,useEffect,useState } from 'react';
+import React, { Component } from 'react';
 import CanvasJSReact from '../assets/canvasjs.react';
-import socket from "../componentes/Socket";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 //import data from "../helpers/data.json";
 

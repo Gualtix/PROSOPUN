@@ -26,7 +26,7 @@ function createData(name, code, population, size, up, down) {
 
 export default function ColumnGroupingTable() {
     const rows = [];
-
+   
     const [contenido,setDatos] = useState(
         {'contenido':[{
             "humano": "",
@@ -39,17 +39,17 @@ export default function ColumnGroupingTable() {
     );
     
      useEffect(()=>{
-        socket.on('contenido',contenido =>{
-           setDatos(contenido) 
+        socket.on('contenido',con =>{
+           setDatos(con) 
         });
     },[contenido]);
 
   const [hashs,setHash] = useState("");
     useEffect(()=>{
-      socket.on('hashs',hashs =>{
-        setHash(hashs) 
+      socket.on('hashs',ha =>{
+        setHash(ha) 
       });
-  },[hashs]);
+  },[]);
   var hashss = ""
 
   const [page, setPage] = React.useState(0);
@@ -63,39 +63,43 @@ export default function ColumnGroupingTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
+  var  fecha = ""
+  var numero = 0
   return (
       <>{
-        console.log('salida de hash'),
-        console.log(hashs)
+        /*console.log('salida de hash'),
+        console.log(hashs)*/
       }
-      { contenido.contenido.slice(0).map((e)=>{
-        hashss = " "
+      { contenido.contenido.slice(0).map((e)=>(
+        <>
+        {hashss = " ",
        hashss = 
        (hashs === "" ? " " : (hashs.hashs.map((h)=>{
           return(
           e.id === h.id_noti_tweet) ? (hashss + h.hashtag + " " ) : " "      
-     })))
-     
+        }))),
+          fecha = new Date(e.fecha),
+          numero = fecha.getMonth() + 1,
         
-                    return(
-
-                        rows.push(createData(e.humano,e.fecha,e.comentario,hashss,e.down,e.up)),
-                        console.log(hashss) , console.log("cada hasssh") 
-                    )
-                })
+                    //return(
+                  <small>
+                        {(rows.push(createData(e.humano,fecha.getDate() + "/" + numero+ "/" + fecha.getFullYear(),e.comentario,hashss,e.down,e.up)) === "" ? " ":" ")}
+                        </small>
+                        //console.log(hashss) , console.log("cada hasssh") 
+                    }
+                </>))
                 }
     <Paper sx={{ width: '100%' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              <TableCell align="center" colSpan={3}>
-                Country
+              <TableCell align="center" colSpan={6}>
+                <b><h2> Resultado total de Registos en la base de datos</h2> </b>
               </TableCell>
-              <TableCell align="center" colSpan={3}>
+              {/*<TableCell align="center" colSpan={3}>
                 Details
-              </TableCell>
+              </TableCell>*/}
             </TableRow>
             <TableRow>
               {columns.map((column) => (
@@ -116,7 +120,7 @@ export default function ColumnGroupingTable() {
             {
                  
                 
-            console.log(rows),console.log("el rows"),
+            //console.log(rows),console.log("el rows"),
             
             rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

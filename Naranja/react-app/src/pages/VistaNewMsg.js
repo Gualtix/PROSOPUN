@@ -4,29 +4,27 @@ import React,{useEffect,useState} from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Card from '../componentes/Card'
 import './VistaNewMsg.css'
-import data from "../helpers/data.json";
 import MediaCard from '../componentes/Card';
 import socket from "../componentes/Socket";
 
 
 function ElementoLista(props){
-    const [hashs,setHash] = useState("");
+  /*  const [hashs,setHash] = useState("");
     useEffect(()=>{
-      socket.on('hashs',hashs =>{
-        setHash(hashs) 
+      socket.on('hashs',data =>{
+        setHash(data) 
       });
-  },[hashs]);
-  var hashss = ""
+  },[]);*/
+  /*var hashss = ""
   hashss = " "
   hashss = 
     (hashs === "" ? " " : (hashs.hashs.map((h)=>{
         return(
-        props.el.id === h.id_noti_tweet) ? (hashss + h.hashtag + " " ) : " "      
+        props.el.id === h.id_noti_tweet ? (hashss + h.hashtag + " " ) : " "
+        )      
     })))  
-    
+    */
 
     return(
         
@@ -36,7 +34,7 @@ function ElementoLista(props){
                 nombre ={ props.el.humano}
                 comentario = {props.el.comentario}
                 fecha = {props.el.fecha}
-                hastags = {hashss} 
+                hastags = {props.hashtagss} 
                 upvotes = {props.el.up}
                 downvotes = {props.el.down}
                 />
@@ -59,6 +57,15 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const VistaNewMsg = () =>{
+    var hashss = ""
+  hashss = " "
+    const [hashs,setHash] = useState("");
+    useEffect(()=>{
+      socket.on('hashs',data =>{
+        setHash(data) 
+      });
+  },[]);
+
     const [contenido,setDatos] = useState(
         {'contenido':[{
             "humano": "",
@@ -88,7 +95,14 @@ const VistaNewMsg = () =>{
                  { //text.url === "home"? "\\":text.url
                  
                      contenido.contenido.slice(0).reverse().map((el)=>(
-                         <ElementoLista el ={el} />
+                        hashss = " ",
+                        hashss = 
+                        (hashs === "" ? " " : (hashs.hashs.map((h)=>{
+                            return(
+                            el.id === h.id_noti_tweet ? (hashss + h.hashtag + " " ) :  ""
+                            )      
+                        }))), 
+                         <ElementoLista el ={el} hashtagss ={hashss} />
                      ))
                  }
 

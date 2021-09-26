@@ -14,11 +14,11 @@ import MultiGrap from "./MultiGraph"
 export default function NativeSelectDemo() {
   const [barras,setBarras] = useState( "" );
   useEffect(()=>{			
-    socket.on('barras',bar =>{
-      setBarras(bar) 
+    socket.on('barras',barras =>{
+      setBarras(barras) 
       
     })
-  },[])
+  },[barras])
   var array = []
   var array2 = []
   var fecha = []

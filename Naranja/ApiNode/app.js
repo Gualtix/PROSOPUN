@@ -10,7 +10,26 @@ const socketIO = require('socket.io');
 //const io = socketIO.listen(Server);
 const {database} = require('./config/helper');
 
+
+///COSMOS CONFIGURATION
+
+const { CosmosClient } = require("@azure/cosmos");
+
+const endpoint = "https://sistemasoperativos.documents.azure.com:443/";
+const key = "<KpXECwtMz5yBzdWR7ufAea73rIoAzuwj0WF3M02P1GusmXXBVhnQfNfLhNmUXnRA0c4WDEDRN9qkDwoXNMjkUA==>";
+const dbId = 'proyecto' || process.env.COSMOS_DB;
+const containerId = 'Items' || process.env.COSMOS_CONTAINER;
+const client = new CosmosClient({ endpoint, key });
+
+/*async function run() {
+    const client = new CosmosClient({
+      endpoint,
+      key
+    });
+*/
+
 const mensaje = []
+
 
 
 
@@ -36,9 +55,57 @@ const io = socketIO(server,{
         origin: "*"
     }
 })
+
+/*async function main() {
+    // The rest of the README samples are designed to be pasted into this function body
+    const { resources } = await  client.database(dbId).container(containerId).items.query("SELECT * from noti_tweet")
+  .fetchAll();
+    for (const city of resources) {
+    console.log(`${city.nombre}, ${city.fecha},${city.comentario},${city.comentario},${city.upvotes},${city.downvotes},  resultado `);
+    }
+  }
+  
+  main().catch((error) => {
+    console.error(error);
+  });*/
+//main();
+///VAMOS A PROBAR CONEXION A COSMOS
+io.sockets.on('connection', (socket) => {
+    var q = "SELECT * from noti_tweet"
+    client.database(dbId).container(containerId).items.query(q)
+    .fetchAll()
+        .then(contenido => {
+            data = contenido.resources;
+            io.sockets.emit('azuC', {data});
+            //console.log("entro aca");
+        })
+        
+        .catch(err => console.log(  err));
+/*
+        database.table('asignacion') //nombre de la tabla
+        .withFields(['hashtag','id_noti_tweet'])//campos de la tabla, etc
+        //.sort({id: -1})//ordenado por id en orden descendente +1 seria ascendente
+        .getAll()//se obtienen todos los datos
+        //.limit(size=2){size:2} limite o top
+        
+        .then(contenido => {
+            data = contenido;
+            io.sockets.emit('hashs', {hashs: [...data]});
+            //console.log("entro aca");
+        })
+        
+        .catch(err => console.log(  err));
+
+        //socket.emit('ReEnvio',{ReEnvio:mensaje});
+        */
+},500);//tiempo del servidor
+
+
+
+
 //mensaje de recepcion del Sub
 io.sockets.on('connection',(socket)=>{
-    console.log('nueva conexcion: ');
+  //  console.log('nueva conexcion: ');
     
     
     socket.on('clientEnvioMsg', data =>{
@@ -59,7 +126,7 @@ io.sockets.on('connection',(socket)=>{
 
 //Mensaje del Sub al React
 io.sockets.on('connection',(socket)=>{
-    console.log('dentro');
+  //  console.log('dentro');
     socket.emit('ReEnvio',{ReEnvio:mensaje});
 })
 
@@ -198,19 +265,34 @@ io.sockets.on('connection', function (socket) {
     })
     .catch(err => console.log(  err));
 
-    var q = "SELECT DISTINCT fecha, SUM(up) as ups, SUM(down) as down FROM noti_tweet "
+    var q = "SELECT DISTINCT  fecha, SUM(up) as ups, SUM(down) as downV FROM noti_tweet "
        +" GROUP BY (fecha)";
     database.query(q)
     .then(row => {
         data1 = row;
-        console.log("este es la respuesta barras")
+        /*console.log("este es la respuesta barras")
         console.log(data1)
-        //console.log(row)
-        io.sockets.emit('barras', {barras: data1});
+        //console.log(row)*/
+        io.sockets.emit('barras', {barras: [...data1]});
     })
     .catch(err => console.log(  err));
   });
-  
+  /*
+  io.sockets.on('connection', function (socket) {
+    
+        var q = "SELECT DISTINCT fecha, SUM(up) as ups, SUM(down) as down FROM noti_tweet "
+           +" GROUP BY (fecha)";
+        database.query(q)
+        .then(row => {
+            data1 = row;
+            console.log("este es la respuesta barras")
+            console.log(data1)
+            //console.log(row)
+            io.sockets.emit('barras', {barras: [...data1]});
+        })
+        .catch(err => console.log(  err));
+      });
+     */ 
 
 io.sockets.on('connection', (socket) => {
     id = socket;

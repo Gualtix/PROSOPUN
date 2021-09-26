@@ -22,10 +22,10 @@ class StackedAreaChart extends Component {
 			  animationEnabled: true,
 			  exportEnabled: true,
 			  title: {
-				text: "Energy usage for Air Conditioning"
+				text: "Up Votes VS Down Votes"
 			  },
 			  axisY: {
-				title: "Energy (in terawatt hours)"
+				title: "Cantidad de Votos"
 			  },
 			  toolTip: {
 				shared: true
@@ -40,70 +40,24 @@ class StackedAreaChart extends Component {
 			  data: [
 				{
 					type: "stackedArea",
-					name: "US",
+					name: "Down Votes",
 					showInLegend: true,
-					xValueFormatString: "YYYY",
-					dataPoints: [
-						{x: new Date(1990, 0), y: 339},
-						{x: new Date(2000, 0), y: 448},
-						{x: new Date(2010, 0), y: 588},
-						{x: new Date(2016, 0), y: 616}
-					]
+					xValueFormatString: "DD MMM YYYY",
+					dataPoints: this.props.arreglo2
 				},
 				{
 					type: "stackedArea",
-					name: "European Union",
+					name: "Up Votes",
 					showInLegend: true,
-					xValueFormatString: "YYYY",
-					dataPoints: [
-						{x: new Date(1990, 0), y: 63},
-						{x: new Date(2000, 0), y: 100},
-						{x: new Date(2010, 0), y: 149},
-						{x: new Date(2016, 0), y: 152}
-					]
-				},
-				{
-					type: "stackedArea",
-					name: "Japan",
-					showInLegend: true,
-					xValueFormatString: "YYYY",
-					dataPoints: [
-						{x: new Date(1990, 0), y: 48},
-						{x: new Date(2000, 0), y: 100},
-						{x: new Date(2010, 0), y: 119},
-						{x: new Date(2016, 0), y: 107},
-				]
-				},
-				{
-					type: "stackedArea",
-					name: "China",
-					showInLegend: true,
-					xValueFormatString: "YYYY",
-					dataPoints: [
-						{x: new Date(1990, 0), y: 7 },
-						{x: new Date(2000, 0), y: 45},
-						{x: new Date(2010, 0), y: 243},
-						{x: new Date(2016, 0), y: 450},
-					]
-				},
-				{
-					type: "stackedArea",
-					name: "India",
-					showInLegend: true,
-					xValueFormatString: "YYYY",
-					dataPoints: [
-						{x: new Date(1990, 0), y: 6},
-						{x: new Date(2000, 0), y: 22},
-						{x: new Date(2010, 0), y: 49},
-						{x: new Date(2016, 0), y: 91},
-					]
+					xValueFormatString: "DD MMM YYYY",
+					dataPoints: this.props.arreglo1
 				}
+				
 			]
 		}
 		
 		return (
 		<div>
-			<h1>React Stacked Area Chart</h1>
 			<CanvasJSChart options = {options} 
 				onRef={ref => this.chart = ref}
 			/>
