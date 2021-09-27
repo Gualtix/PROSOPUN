@@ -59,12 +59,13 @@ const Item = styled(Paper)(({ theme }) => ({
 const VistaNewMsg = () =>{
     var hashss = ""
   hashss = " "
+  var ha = []
     const [hashs,setHash] = useState("");
     useEffect(()=>{
       socket.on('hashs',data =>{
         setHash(data) 
       });
-  },[]);
+  },[hashs]);
 
     const [contenido,setDatos] = useState(
         {'contenido':[{
@@ -91,10 +92,20 @@ const VistaNewMsg = () =>{
         <div class = "left" >
             {console.log(contenido)}
             <Grid container spacing = {2} columns = {35} >
-                 
-                 { //text.url === "home"? "\\":text.url
-                 
+                 {
                      contenido.contenido.slice(0).reverse().map((el)=>(
+                        hashs === "" ? " " : (ha = hashs.hashs.filter(ides => ides.id_noti_tweet === el.id)),
+                        hashss = "",
+                        ha.map((h)=>(
+                            hashss =  hashss + h.hashtag + " "
+                        )),
+                        <ElementoLista el ={el} hashtagss ={hashss} />
+                     ))
+                 }
+                 { //text.url === "home"? "\\":text.url
+                 /*
+                     contenido.contenido.slice(0).reverse().map((el)=>(
+                         
                         hashss = " ",
                         hashss = 
                         (hashs === "" ? " " : (hashs.hashs.map((h)=>{
@@ -104,6 +115,7 @@ const VistaNewMsg = () =>{
                         }))), 
                          <ElementoLista el ={el} hashtagss ={hashss} />
                      ))
+                     */
                  }
 
                 {/*

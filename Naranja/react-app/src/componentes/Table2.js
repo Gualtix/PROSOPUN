@@ -27,30 +27,14 @@ function createData(name, code, population, size, up, down) {
 export default function ColumnGroupingTable() {
     const rows = [];
    
-    const [contenido,setDatos] = useState(
-        {'contenido':[{
-            "humano": "",
-            "comentario":"",
-            "fecha":"",
-            "id": "",
-            "up": 0,
-            "down": 0
-        }]}
-    );
-    
+   
+    const [AzureE,setAzureE] = useState( "");
      useEffect(()=>{
-        socket.on('contenido',con =>{
-           setDatos(con) 
-        });
-    },[contenido]);
-
-  const [hashs,setHash] = useState("");
-    useEffect(()=>{
-      socket.on('hashs',ha =>{
-        setHash(ha) 
-      });
-  },[]);
-  var hashss = ""
+         
+        socket.on('azuC',ac1 =>{
+            setAzureE(ac1) 
+        })
+    },[])//aqui tenia [ReEnvio]
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -63,22 +47,26 @@ export default function ColumnGroupingTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  var  fecha = ""
-  var numero = 0
-  var ha = []
+  
   return (
-      <>{
-        /*console.log('salida de hash'),
-        console.log(hashs)*/
+      <>
+        {
+            console.log('salida en azure'),
+            console.log(AzureE)
+        }
+      
+      {
+         AzureE === "" ? "" : ( AzureE.data.slice(0).map((e)=>(
+            <>
+                {
+                (rows.push(createData(e.nombre,e.fecha,e.comentario,e.hashtags,e.upvotes,e.downvotes)) === "" ? " ":" ")
+                }
+            </>
+         )))
       }
-      { contenido.contenido.slice(0).map((e)=>(
+        {/*  contenido.contenido.slice(0).map((e)=>(
         <>
         {
-       hashs === "" ? " " : (ha = hashs.hashs.filter(ides => ides.id_noti_tweet === e.id)),
-       hashss = "",
-       ha.map((h)=>(
-           hashss =  hashss + h.hashtag + " "
-       )),
           fecha = new Date(e.fecha),
           numero = fecha.getMonth() + 1,
         
@@ -89,7 +77,7 @@ export default function ColumnGroupingTable() {
                         //console.log(hashss) , console.log("cada hasssh") 
                     }
                 </>))
-                }
+                */ }
     <Paper sx={{ width: '100%' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">

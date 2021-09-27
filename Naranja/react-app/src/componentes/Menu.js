@@ -5,6 +5,7 @@ import { BrowserRouter  as Router,Route,Switch} from "react-router-dom";
 import './Menu.css'
 import VistaNewMsg from "../pages/VistaNewMsg";
 import Reportes from "../pages/Reportes";
+import Reportes2 from "../pages/Reportes2";
 import socket from "./Socket";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -40,22 +41,12 @@ export default function MaterialUI (){
         })
     },[])//aqui tenia [ReEnvio]
 
-    const [AzureE,setAzureE] = useState( "");
-     useEffect(()=>{
-         
-        socket.on('azuC',ac1 =>{
-            setAzureE(ac1) 
-        })
-    },[])//aqui tenia [ReEnvio]
     
 
     return( 
         
         <>
-        {
-            console.log('salida en azure'),
-            console.log(AzureE)
-        }
+       
         <div class = "left"  > 
         {
             console.log('mensaje'),
@@ -151,7 +142,7 @@ export default function MaterialUI (){
                 <Route exact path ="/Reportes2">
                   
                 Reportes en CosmosDB
-                         <Reportes />
+                         <Reportes2 />
                    
                 </Route>
                 

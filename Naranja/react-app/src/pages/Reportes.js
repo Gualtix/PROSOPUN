@@ -60,7 +60,7 @@ export default function Reportes() {
    
   return (
     <div >
-      
+     {console.log(top5) }
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
      

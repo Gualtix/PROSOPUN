@@ -12,13 +12,13 @@ import socket from "./Socket";
 import MultiGrap from "./MultiGraph"
 
 export default function NativeSelectDemo() {
-  const [barras,setBarras] = useState( "" );
+  const [AzurC4,setBar] = useState( "" );
   useEffect(()=>{			
-    socket.on('barras',barras =>{
-      setBarras(barras) 
+    socket.on('azuC4',barras =>{
+      setBar(barras) 
       
     })
-  },[barras])
+  },[])
   var array = []
   var array2 = []
   var fecha = []
@@ -30,6 +30,8 @@ export default function NativeSelectDemo() {
     
   return (
     <Box sx={{ minWidth: 120 }}>
+      {console.log("AZURE BARRAS"),
+      console.log(AzurC4)}
       <FormControl >
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Graficas
@@ -62,8 +64,8 @@ export default function NativeSelectDemo() {
         >
           <option  value={60}>Selecciona una Fecha</option>
           {
-               ( barras === "" ? " " : 
-                ( barras.barras.map((el,index)=>{
+               ( AzurC4 === "" ? " " : 
+                ( AzurC4.data.map((el,index)=>{
                   fecha = new Date(el.fecha)
                   numero = fecha.getMonth() + 1
                   
@@ -79,8 +81,8 @@ export default function NativeSelectDemo() {
       {/*<p>yOUR SELECTED : {name}</p>*/}
       
       {(valor === '10' ?( 
-        ( barras === "" ? " " : 
-          ( barras.barras.map((el,index)=>(
+        ( AzurC4 === "" ? " " : 
+          ( AzurC4.data.map((el,index)=>(
             <>
             
            { 
@@ -101,8 +103,8 @@ export default function NativeSelectDemo() {
         
       ): 
       valor === '40' ?(
-        ( barras === "" ? " " : 
-           ( barras.barras.map((el,index)=>(
+        ( AzurC4 === "" ? " " : 
+           ( AzurC4.data.map((el,index)=>(
              <>
              {
              el.fecha === name ?
@@ -118,8 +120,8 @@ export default function NativeSelectDemo() {
         )))),
          <ColumGraph arreglo = {array}/>
       ):(valor === '20' ? (
-        ( barras === "" ? " " : 
-          ( barras.barras.map((el,index)=>{
+        ( AzurC4 === "" ? " " : 
+          ( AzurC4.data.map((el,index)=>{
             return(
              array.push({ "x": new Date(el.fecha) ,"y":el.ups}),
              array2.push({ "x": new Date (el.fecha),"y":el.downV})
@@ -127,8 +129,8 @@ export default function NativeSelectDemo() {
        }))),
       <StockGrap arreglo1={array} arreglo2 = {array2} />
       ) : (valor === '30' ?(
-        ( barras === "" ? " " : 
-          ( barras.barras.map((el,index)=>{
+        ( AzurC4 === "" ? " " : 
+          ( AzurC4.data.map((el,index)=>{
             return(
              array.push({ "x": new Date(el.fecha) ,"y":el.ups}),
              array2.push({ "x": new Date (el.fecha),"y":el.downV})
@@ -137,8 +139,8 @@ export default function NativeSelectDemo() {
       <LineGraph arreglo1={array} arreglo2 = {array2} />
       
       ): (valor === '50' ?(
-        ( barras === "" ? " " : 
-           ( barras.barras.map((el,index)=>{
+        ( AzurC4 === "" ? " " : 
+           ( AzurC4.data.map((el,index)=>{
             fecha = new Date(el.fecha)
             numero = fecha.getMonth() + 1
              return(
