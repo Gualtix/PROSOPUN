@@ -400,7 +400,8 @@ io.sockets.on('connection', (socket) => {
 
         //socket.emit('ReEnvio',{ReEnvio:mensaje});
 },500);//tiempo del servidor
-
-server.listen(3001, () => {
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => {
     console.log('Server running on port 3001');
 })
+//pure-ethos-325501
