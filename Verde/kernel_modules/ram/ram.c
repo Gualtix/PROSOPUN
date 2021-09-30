@@ -30,7 +30,7 @@ static int myread (struct seq_file *buff, void *v){
 
     printk( KERN_DEBUG "read handler\n");
     si_meminfo(&i);
-    seq_printf(buff,"{\"total\":%ld, \"libre\": %ld, \"mem_unit\": %ld}", i.totalram, i.freeram,i.mem_unit);
+    seq_printf(buff,"{\"total\":%ld, \"libre\": %ld, \"mem_unit\": %ld}", (i.totalram * i.mem_unit), (i.freeram * i.mem_unit),i.mem_unit);
     
     return 0;
 }
@@ -60,7 +60,7 @@ static struct proc_ops myops={
 static int simple_init(void){
 
     printk(KERN_INFO "Iniciando la Lectura de Ram\n");
-    ent=proc_create("ram",0,NULL,&myops);
+    ent=proc_create("ram.json",0,NULL,&myops);
     return 0;
 }
 
