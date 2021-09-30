@@ -1,37 +1,25 @@
 import React, { Component } from 'react';
 import CanvasJSReact from '../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-//import data from "../helpers/data.json";
-
-
-
-class PieChartWithCustomization extends Component {
-	
-	
-	render() {
-		
+ 
+class ColumnChart extends Component {
+		render() {
 		const options = {
-			theme: "dark2",
+			title: {
+				text: "Up Votes VS Down Votes"
+			},
 			animationEnabled: true,
-			exportFileName: "New Year Resolutions",
-			exportEnabled: true,
-			
-			data: [{
-				type: "pie",
-				showInLegend: true,
-				legendText: "{label}",
-				toolTipContent: "{label}: <strong>{y}UpVotes</strong>",
-				indexLabel: "{y} UpVotes",
-				indexLabelPlacement: "inside",
+			data: [
+			{
+				// Change type to "doughnut", "line", "splineArea", etc.
+				type: "column",
 				dataPoints: this.props.arreglo
-			}]
+			}
+			]
 		}
-
-	
+		
 		return (
 		<div>
-			<h2>TOP 5 HASHTAG</h2>
-			
 			<CanvasJSChart options = {options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
@@ -41,4 +29,4 @@ class PieChartWithCustomization extends Component {
 	}
 }
 
-export default PieChartWithCustomization;
+export default ColumnChart;

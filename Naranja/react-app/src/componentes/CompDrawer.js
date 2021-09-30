@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -15,8 +14,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 
@@ -132,7 +129,7 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        {/*<Divider />
         <List>
           {['Inicio', 'Noticias y Mensajes', 'Noticias'].map((text, index) => (
             <ListItem button key={text}>
@@ -142,10 +139,11 @@ export default function MiniDrawer() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+          </List>
         <Divider />
+        */}
         <List>
-          {[{name:'Home',url:"home"}, {name:'Graphics',url:"/Reportes"},{name:'News/Messages',url:"/VistaNewsMsgs"}].map((text, index) => (
+          {[{name:'Home',url:"home"}, {name:'CloudSQL',url:"/Reportes"},{name:'News/Messages',url:"/VistaNewsMsgs"},{name:'CosmosDB',url:"/Reportes2"}].map((text, index) => (
             <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
             {/*<ListItem button key={text.name} Link to="/Reportes">*/}
               <ListItemIcon>

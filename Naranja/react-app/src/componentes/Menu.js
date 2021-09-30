@@ -5,8 +5,11 @@ import { BrowserRouter  as Router,Route,Switch} from "react-router-dom";
 import './Menu.css'
 import VistaNewMsg from "../pages/VistaNewMsg";
 import Reportes from "../pages/Reportes";
+import Reportes2 from "../pages/Reportes2";
 import socket from "./Socket";
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 
 /*function Menu(){
@@ -16,66 +19,111 @@ import socket from "./Socket";
            setDatos(dats) 
         })
     },[dats])
+
 }*/
 
+
 export default function MaterialUI (){
- /*   const [serverEnvioMsg,setMsgs] = useState([]);
-    
-     useEffect(()=>{
-        socket.on('serverEnvioMsg',serverEnvioMsg =>{
-            setMsgs(serverEnvioMsg) 
-        })
-    },[serverEnvioMsg])
-*/
+   
 
-    const [ReEnvio,setReEnvio] = useState( "" );
-     useEffect(()=>{
-         
-        socket.on('ReEnvio',ReEnvio =>{
-            setReEnvio(ReEnvio) 
-        })
-    },[socket])//aqui tenia [ReEnvio]
-
-    const [consulta1,setConsulta1] = useState( "" );
+    const [ReEnvio,setReEnvio] = useState( 
+        {'ReEnvio':[{
+            "Api": "",
+            "Guardados":"",
+            "TiempoDeCarga":"",
+            "DB": ""
+        }]}
+     );
      useEffect(()=>{
          
-        socket.on('consulta1',consulta1 =>{
-            setConsulta1(consulta1) 
+        socket.on('ReEnvio',re =>{
+            setReEnvio(re) 
         })
-    },[socket])//aqui tenia [ReEnvio]
+    },[])//aqui tenia [ReEnvio]
+
     
 
-    return(
+    return( 
+        
         <>
+       
+        <div class = "left"  > 
         {
             console.log('mensaje'),
-            console.log(ReEnvio),
-            console.log('la consulta 1 es:'),
-            console.log(consulta1)
+            console.log(ReEnvio)
         }
       <CompDrawer />
       <Router>
                 <Switch>
                 <Route exact path ="/">
-                    <br />
-                    <h3>Home</h3>
-                    <p>
-                        Bienvenidios a la pagina de inicio <br/>
-                    </p>
-
                     
-            
-            {
+                    <p>
+                        <h6>Notificaciones de Carga </h6>
+                    </p>
+                    
+                   {/* width: 300, height: 300,minWidth: 75, marginLeft: 50, */}
+                   
+                    <div style={{ display:'flex',justifyContent:'center' }}>
+                    <Card sx={{ maxWidth: 370 }} >
+                        { /*<CardMedia
+                            component="img"
+                            marginLeft = "30"
+                            margin right = "30"
+                            height="140"
+                            image="/static/images/cards/contemplative-reptile.jpg"
+                            alt="green iguana"
+                        />
+                        */}
+                        <CardContent >
+                            <Typography gutterBottom variant="h6" component="div">
+                              Notificación de Carga  
+                            </Typography>
+                            <hr />
+                            {
+
+                                ( ReEnvio === "" ? " " : 
+                                ( ReEnvio.ReEnvio.map((el)=>(
+                                    <>
+                                    <Typography fontSize="1rem" color="text.secondary">
+                                    API: {el.Api}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.primary">
+                                    GUARDADOS:{el.Guardados}
+                                    </Typography>
+                                    <Typography  fontSize="1rem" color="text.secondary">
+                                    TIEMPO DE CARGA:{el.TiempoDeCarga}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.primary">
+                                    BASE DE DATOS:{el.DB}
+                                    </Typography>
+{
+                                       /* <h4>API: </h4> {el.Api}
+                                        <h4>GUARDADOS: </h4> {el.Guardados}
+                                        <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
+                                        <h4>BASE DE DATOS: </h4> {el.DB}*/}
+                                    </>
+                                ))))
+                            }
+
+                            
+                        </CardContent>
+                        </Card>
+                    </div>
+                     
+            {/*
+
                ( ReEnvio === "" ? " " : 
                 ( ReEnvio.ReEnvio.map((el)=>(
                      <>
-                    <h4>API: </h4> {el.Api}
-                    <h4>GUARDADOS: </h4> {el.Guardados}
-                    <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
-                    <h4>BASE DE DATOS: </h4> {el.DB}
+                     
+
+                        <h4>API: </h4> {el.Api}
+                        <h4>GUARDADOS: </h4> {el.Guardados}
+                        <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
+                        <h4>BASE DE DATOS: </h4> {el.DB}
                     </>
                  ))))
-                 }
+                */ }
 
                     
                     
@@ -86,7 +134,16 @@ export default function MaterialUI (){
                     <VistaNewMsg />
                 </Route>
                 <Route exact path ="/Reportes">
-                    <Reportes />
+                  
+                Reportes en CloudSQL
+                         <Reportes />
+                   
+                </Route>
+                <Route exact path ="/Reportes2">
+                  
+                Reportes en CosmosDB
+                         <Reportes2 />
+                   
                 </Route>
                 
                 
@@ -96,7 +153,8 @@ export default function MaterialUI (){
       <br />
       <br />
       <br />
-        
+      </div>
         </>
+     
     )
 }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import data from "../helpers/data.json";
-
 import CanvasJSReact from '../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 function ElementoLista(){
@@ -13,17 +11,6 @@ class StackedBarChart extends Component {
 		super();
 		this.toggleDataSeries = this.toggleDataSeries.bind(this);
 	}
-    votosUp = ()=>{
-
-        return data.twits.map((voto) =>{
-            return { x: voto.fecha, y: parseInt(voto.upvotes) };
-          })
-    }
-    votosDown = ()=>{
-        return data.twits.map((voto) =>{
-            return { x: voto.fecha, y: parseInt(voto.dowvotes) };
-          })
-    }
 
 
 	toggleDataSeries(e) {
@@ -59,35 +46,24 @@ class StackedBarChart extends Component {
 				type: "stackedBar",
 				name: "UpVote",
 				showInLegend: "true",
-				xValueFormatString: "DD, MMM",
+				xValueFormatString: "DD, MMM, YYYY",
 				yValueFormatString: "#,##0",
-				dataPoints: [
-					{ x: new Date(2018, 5, 27), y: 71 },
-					{ x: new Date(2018, 5, 28), y: 41 },
-					{ x: new Date(2018, 5, 29), y: 60 },
-					{ x: new Date(2018, 5, 30), y: 75 },
-					{ x: new Date(2018, 6, 1), y: 98 }
-				]
+				dataPoints: this.props.arreglo1
 			},
 			
 			{
 				type: "stackedBar",
 				name: "DownVote",
 				showInLegend: "true",
-				xValueFormatString: "DD, MMM",
+				xValueFormatString: "DD, MMM, YYYY",
 				yValueFormatString: "#,##0",
-				dataPoints: [
-					{ x: new Date(2018, 5, 27), y: 20 },
-					{ x: new Date(2018, 5, 28), y: 35 },
-					{ x: new Date(2018, 5, 29), y: 30 },
-					{ x: new Date(2018, 5, 30), y: 45 },
-					{ x: new Date(2018, 6, 1), y: 25 }
-				]
+				dataPoints: this.props.arreglo2
 			}]
 		}
 		
 		return (
 		<div>
+			{/*console.log(this.props.arreglo1)*/}
 			<h2>UPVOTES VR DOWNVOTES</h2>
             {ElementoLista}
 			<CanvasJSChart options = {options} 
