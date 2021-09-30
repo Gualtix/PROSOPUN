@@ -1,0 +1,1 @@
+cmd_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.ko /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.o /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o;  true

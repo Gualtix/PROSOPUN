@@ -1,9 +1,10 @@
-cmd_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := gcc -Wp,-MMD,/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/.cpu.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/9/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=none -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -gdwarf-4 -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned  -DMODULE  -DKBUILD_BASENAME='"cpu"' -DKBUILD_MODNAME='"cpu"' -c -o /home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o /home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.c
+cmd_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o := gcc -Wp,-MMD,/home/wrm/PROSOPUN/Verde/kernel_modules/ram/.ram.mod.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/9/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=none -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -gdwarf-4 -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned  -DMODULE  -DKBUILD_BASENAME='"ram.mod"' -DKBUILD_MODNAME='"ram"' -c -o /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.c
 
-source_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := /home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.c
+source_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o := /home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.c
 
-deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
-    $(wildcard include/config/mmu.h) \
+deps_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o := \
+    $(wildcard include/config/module/unload.h) \
+    $(wildcard include/config/retpoline.h) \
   include/linux/kconfig.h \
     $(wildcard include/config/cc/version/text.h) \
     $(wildcard include/config/cpu/big/endian.h) \
@@ -15,18 +16,31 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
     $(wildcard include/config/arm64.h) \
-    $(wildcard include/config/retpoline.h) \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
-  include/linux/kernel.h \
-    $(wildcard include/config/preempt/voluntary.h) \
-    $(wildcard include/config/debug/atomic/sleep.h) \
+  include/linux/module.h \
+    $(wildcard include/config/modules.h) \
+    $(wildcard include/config/sysfs.h) \
+    $(wildcard include/config/modules/tree/lookup.h) \
+    $(wildcard include/config/livepatch.h) \
+    $(wildcard include/config/unused/symbols.h) \
+    $(wildcard include/config/module/sig.h) \
+    $(wildcard include/config/generic/bug.h) \
+    $(wildcard include/config/kallsyms.h) \
     $(wildcard include/config/smp.h) \
-    $(wildcard include/config/prove/locking.h) \
-    $(wildcard include/config/panic/timeout.h) \
+    $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/tree/srcu.h) \
+    $(wildcard include/config/bpf/events.h) \
+    $(wildcard include/config/debug/info/btf/modules.h) \
+    $(wildcard include/config/jump/label.h) \
     $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/ftrace/mcount/record.h) \
-  include/linux/limits.h \
-  include/uapi/linux/limits.h \
+    $(wildcard include/config/kprobes.h) \
+    $(wildcard include/config/have/static/call/inline.h) \
+    $(wildcard include/config/constructors.h) \
+    $(wildcard include/config/function/error/injection.h) \
+  include/linux/list.h \
+    $(wildcard include/config/debug/list.h) \
   include/linux/types.h \
     $(wildcard include/config/have/uid16.h) \
     $(wildcard include/config/uid16.h) \
@@ -49,6 +63,19 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/x86/32.h) \
   arch/x86/include/uapi/asm/posix_types_64.h \
   include/uapi/asm-generic/posix_types.h \
+  include/linux/poison.h \
+    $(wildcard include/config/illegal/pointer/value.h) \
+  include/linux/const.h \
+  include/vdso/const.h \
+  include/uapi/linux/const.h \
+  include/linux/kernel.h \
+    $(wildcard include/config/preempt/voluntary.h) \
+    $(wildcard include/config/debug/atomic/sleep.h) \
+    $(wildcard include/config/mmu.h) \
+    $(wildcard include/config/prove/locking.h) \
+    $(wildcard include/config/panic/timeout.h) \
+  include/linux/limits.h \
+  include/uapi/linux/limits.h \
   include/vdso/limits.h \
   include/linux/linkage.h \
     $(wildcard include/config/arch/use/sym/annotations.h) \
@@ -57,9 +84,7 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/module/rel/crcs.h) \
     $(wildcard include/config/have/arch/prel32/relocations.h) \
-    $(wildcard include/config/modules.h) \
     $(wildcard include/config/trim/unused/ksyms.h) \
-    $(wildcard include/config/unused/symbols.h) \
   include/linux/compiler.h \
     $(wildcard include/config/trace/branch/profiling.h) \
     $(wildcard include/config/profile/all/branches.h) \
@@ -77,9 +102,6 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/x86/alignment/16.h) \
   include/linux/bitops.h \
   include/linux/bits.h \
-  include/linux/const.h \
-  include/vdso/const.h \
-  include/uapi/linux/const.h \
   include/vdso/bits.h \
   include/linux/build_bug.h \
   include/uapi/linux/kernel.h \
@@ -88,7 +110,6 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/x86/cmov.h) \
   arch/x86/include/asm/alternative.h \
   arch/x86/include/asm/asm.h \
-    $(wildcard include/config/kprobes.h) \
   arch/x86/include/asm/rmwcc.h \
     $(wildcard include/config/cc/has/asm/goto.h) \
   arch/x86/include/asm/barrier.h \
@@ -179,30 +200,9 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/lock/stat.h) \
   include/linux/rwlock_types.h \
   include/linux/dynamic_debug.h \
-    $(wildcard include/config/jump/label.h) \
   include/linux/jump_label.h \
     $(wildcard include/config/have/arch/jump/label/relative.h) \
   arch/x86/include/asm/jump_label.h \
-  include/linux/module.h \
-    $(wildcard include/config/sysfs.h) \
-    $(wildcard include/config/modules/tree/lookup.h) \
-    $(wildcard include/config/livepatch.h) \
-    $(wildcard include/config/module/sig.h) \
-    $(wildcard include/config/generic/bug.h) \
-    $(wildcard include/config/kallsyms.h) \
-    $(wildcard include/config/tracepoints.h) \
-    $(wildcard include/config/tree/srcu.h) \
-    $(wildcard include/config/bpf/events.h) \
-    $(wildcard include/config/debug/info/btf/modules.h) \
-    $(wildcard include/config/event/tracing.h) \
-    $(wildcard include/config/have/static/call/inline.h) \
-    $(wildcard include/config/module/unload.h) \
-    $(wildcard include/config/constructors.h) \
-    $(wildcard include/config/function/error/injection.h) \
-  include/linux/list.h \
-    $(wildcard include/config/debug/list.h) \
-  include/linux/poison.h \
-    $(wildcard include/config/illegal/pointer/value.h) \
   include/linux/stat.h \
   arch/x86/include/uapi/asm/stat.h \
   include/uapi/linux/stat.h \
@@ -644,181 +644,36 @@ deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o := \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
   arch/x86/include/asm/orc_types.h \
-  include/linux/cpufreq.h \
-    $(wildcard include/config/cpu/freq.h) \
-    $(wildcard include/config/cpu/freq/stat.h) \
-    $(wildcard include/config/cpu/thermal.h) \
-    $(wildcard include/config/pm/opp.h) \
-    $(wildcard include/config/energy/model.h) \
-    $(wildcard include/config/cpu/freq/gov/schedutil.h) \
-  include/linux/clk.h \
-    $(wildcard include/config/common/clk.h) \
-    $(wildcard include/config/have/clk/prepare.h) \
-    $(wildcard include/config/have/clk.h) \
-    $(wildcard include/config/of.h) \
-  include/linux/pm_qos.h \
-    $(wildcard include/config/cpu/idle.h) \
-    $(wildcard include/config/pm.h) \
-  include/linux/plist.h \
-    $(wildcard include/config/debug/plist.h) \
-  include/linux/device.h \
-    $(wildcard include/config/debug/devres.h) \
-    $(wildcard include/config/generic/msi/irq/domain.h) \
-    $(wildcard include/config/pinctrl.h) \
-    $(wildcard include/config/generic/msi/irq.h) \
-    $(wildcard include/config/dma/ops.h) \
-    $(wildcard include/config/dma/declare/coherent.h) \
-    $(wildcard include/config/dma/cma.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/device.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu/all.h) \
-    $(wildcard include/config/dma/ops/bypass.h) \
-    $(wildcard include/config/devtmpfs.h) \
-    $(wildcard include/config/sysfs/deprecated.h) \
-  include/linux/dev_printk.h \
-  include/linux/ratelimit.h \
-  include/linux/sched.h \
-    $(wildcard include/config/virt/cpu/accounting/native.h) \
-    $(wildcard include/config/sched/info.h) \
-    $(wildcard include/config/schedstats.h) \
-    $(wildcard include/config/fair/group/sched.h) \
-    $(wildcard include/config/rt/group/sched.h) \
-    $(wildcard include/config/rt/mutexes.h) \
-    $(wildcard include/config/uclamp/task.h) \
-    $(wildcard include/config/uclamp/buckets/count.h) \
-    $(wildcard include/config/kmap/local.h) \
-    $(wildcard include/config/cgroup/sched.h) \
-    $(wildcard include/config/blk/dev/io/trace.h) \
-    $(wildcard include/config/tasks/trace/rcu.h) \
-    $(wildcard include/config/psi.h) \
-    $(wildcard include/config/compat/brk.h) \
-    $(wildcard include/config/cgroups.h) \
-    $(wildcard include/config/blk/cgroup.h) \
-    $(wildcard include/config/arch/has/scaled/cputime.h) \
-    $(wildcard include/config/virt/cpu/accounting/gen.h) \
-    $(wildcard include/config/posix/cputimers.h) \
-    $(wildcard include/config/posix/cpu/timers/task/work.h) \
-    $(wildcard include/config/keys.h) \
-    $(wildcard include/config/sysvipc.h) \
-    $(wildcard include/config/detect/hung/task.h) \
-    $(wildcard include/config/io/uring.h) \
-    $(wildcard include/config/audit.h) \
-    $(wildcard include/config/auditsyscall.h) \
-    $(wildcard include/config/ubsan.h) \
-    $(wildcard include/config/ubsan/trap.h) \
-    $(wildcard include/config/block.h) \
-    $(wildcard include/config/task/xacct.h) \
-    $(wildcard include/config/cpusets.h) \
-    $(wildcard include/config/x86/cpu/resctrl.h) \
-    $(wildcard include/config/futex.h) \
-    $(wildcard include/config/perf/events.h) \
-    $(wildcard include/config/rseq.h) \
-    $(wildcard include/config/task/delay/acct.h) \
-    $(wildcard include/config/fault/injection.h) \
-    $(wildcard include/config/latencytop.h) \
-    $(wildcard include/config/kunit.h) \
-    $(wildcard include/config/function/graph/tracer.h) \
-    $(wildcard include/config/kcov.h) \
-    $(wildcard include/config/bcache.h) \
-    $(wildcard include/config/vmap/stack.h) \
-    $(wildcard include/config/security.h) \
-    $(wildcard include/config/gcc/plugin/stackleak.h) \
-    $(wildcard include/config/x86/mce.h) \
-    $(wildcard include/config/kretprobes.h) \
-    $(wildcard include/config/arch/task/struct/on/stack.h) \
-    $(wildcard include/config/debug/rseq.h) \
-  include/uapi/linux/sched.h \
-  include/linux/pid.h \
-  include/linux/rculist.h \
-    $(wildcard include/config/prove/rcu/list.h) \
-  include/linux/sem.h \
-  include/uapi/linux/sem.h \
-  include/linux/ipc.h \
-  include/linux/rhashtable-types.h \
-  include/uapi/linux/ipc.h \
-  arch/x86/include/generated/uapi/asm/ipcbuf.h \
-  include/uapi/asm-generic/ipcbuf.h \
-  arch/x86/include/uapi/asm/sembuf.h \
-  include/linux/shm.h \
-  include/uapi/linux/shm.h \
-  include/uapi/asm-generic/hugetlb_encode.h \
-  arch/x86/include/uapi/asm/shmbuf.h \
-  include/uapi/asm-generic/shmbuf.h \
-  arch/x86/include/asm/shmparam.h \
-  include/linux/kcov.h \
-  include/uapi/linux/kcov.h \
-  include/linux/hrtimer.h \
-    $(wildcard include/config/high/res/timers.h) \
-    $(wildcard include/config/time/low/res.h) \
-    $(wildcard include/config/timerfd.h) \
-  include/linux/hrtimer_defs.h \
-  include/linux/timerqueue.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/seccomp.h) \
-    $(wildcard include/config/have/arch/seccomp/filter.h) \
-    $(wildcard include/config/seccomp/filter.h) \
-    $(wildcard include/config/checkpoint/restore.h) \
-    $(wildcard include/config/seccomp/cache/debug.h) \
-  include/uapi/linux/seccomp.h \
-  arch/x86/include/asm/seccomp.h \
-  arch/x86/include/asm/unistd.h \
-  arch/x86/include/uapi/asm/unistd.h \
-  arch/x86/include/generated/uapi/asm/unistd_64.h \
-  arch/x86/include/generated/asm/unistd_64_x32.h \
-  arch/x86/include/generated/asm/unistd_32_ia32.h \
-  arch/x86/include/asm/ia32_unistd.h \
-  include/asm-generic/seccomp.h \
-  include/uapi/linux/unistd.h \
-  include/linux/resource.h \
-  include/uapi/linux/resource.h \
-  arch/x86/include/generated/uapi/asm/resource.h \
-  include/asm-generic/resource.h \
-  include/uapi/asm-generic/resource.h \
-  include/linux/latencytop.h \
-  include/linux/sched/prio.h \
-  include/linux/sched/types.h \
-  include/linux/signal_types.h \
-    $(wildcard include/config/old/sigaction.h) \
-  include/uapi/linux/signal.h \
-  arch/x86/include/asm/signal.h \
-  arch/x86/include/uapi/asm/signal.h \
-  include/uapi/asm-generic/signal-defs.h \
-  arch/x86/include/uapi/asm/siginfo.h \
-  include/uapi/asm-generic/siginfo.h \
-  include/linux/syscall_user_dispatch.h \
-  include/linux/task_io_accounting.h \
-    $(wildcard include/config/task/io/accounting.h) \
-  include/linux/posix-timers.h \
-  include/linux/alarmtimer.h \
-    $(wildcard include/config/rtc/class.h) \
-  include/linux/task_work.h \
-  include/uapi/linux/rseq.h \
-  include/linux/kcsan.h \
-  arch/x86/include/generated/asm/kmap_size.h \
-  include/asm-generic/kmap_size.h \
-    $(wildcard include/config/debug/kmap/local.h) \
-  include/linux/energy_model.h \
-  include/linux/sched/cpufreq.h \
-  include/linux/sched/topology.h \
-    $(wildcard include/config/sched/debug.h) \
-    $(wildcard include/config/sched/mc.h) \
-  include/linux/sched/idle.h \
-  include/linux/sched/sd_flags.h \
-  include/linux/ioport.h \
-    $(wildcard include/config/io/strict/devmem.h) \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/vt/console/sleep.h) \
-    $(wildcard include/config/pm/clk.h) \
-    $(wildcard include/config/pm/generic/domains.h) \
-  include/linux/overflow.h \
-  include/linux/device/bus.h \
-    $(wildcard include/config/acpi.h) \
-  include/linux/device/class.h \
-  include/linux/device/driver.h \
-  arch/x86/include/asm/device.h \
-  include/linux/pm_wakeup.h \
+  include/linux/build-salt.h \
+    $(wildcard include/config/build/salt.h) \
+  include/linux/elfnote.h \
+  include/linux/vermagic.h \
+  include/generated/utsrelease.h \
+  arch/x86/include/asm/vermagic.h \
+    $(wildcard include/config/m486sx.h) \
+    $(wildcard include/config/m486.h) \
+    $(wildcard include/config/m586.h) \
+    $(wildcard include/config/m586tsc.h) \
+    $(wildcard include/config/m586mmx.h) \
+    $(wildcard include/config/mcore2.h) \
+    $(wildcard include/config/m686.h) \
+    $(wildcard include/config/mpentiumii.h) \
+    $(wildcard include/config/mpentiumiii.h) \
+    $(wildcard include/config/mpentiumm.h) \
+    $(wildcard include/config/mpentium4.h) \
+    $(wildcard include/config/mk6.h) \
+    $(wildcard include/config/mk8.h) \
+    $(wildcard include/config/melan.h) \
+    $(wildcard include/config/mcrusoe.h) \
+    $(wildcard include/config/mefficeon.h) \
+    $(wildcard include/config/mwinchipc6.h) \
+    $(wildcard include/config/mwinchip3d.h) \
+    $(wildcard include/config/mcyrixiii.h) \
+    $(wildcard include/config/mviac3/2.h) \
+    $(wildcard include/config/mviac7.h) \
+    $(wildcard include/config/mgeodegx1.h) \
+    $(wildcard include/config/mgeode/lx.h) \
 
-/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o: $(deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o)
+/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o: $(deps_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o)
 
-$(deps_/home/wrm/PROSOPUN/Verde/kernel_modules/cpu/cpu.o):
+$(deps_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/ram.mod.o):

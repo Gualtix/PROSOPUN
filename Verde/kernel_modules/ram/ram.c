@@ -1,56 +1,74 @@
-// SPDX-License-Identifier: GPL-3.0
-#include <linux/kernel.h>       // printk(), pr_*()
-#include <linux/module.h>       // THIS_MODULE, MODULE_VERSION, ...
-#include <linux/init.h>         // module_{init,exit}
-#include <linux/sched/task.h>   // struct task_struct, {get,put}_task_struct()
-#include <linux/sched/signal.h> // for_each_process()
-#include <linux/mm.h>           // get_mm_rss()
+#include <linux/module.h>
+#include <linux/moduleparam.h>
+#include <linux/init.h>
+#include <linux/kernel.h>   
+#include <linux/proc_fs.h>
+#include <linux/uaccess.h>
+#include <linux/fs.h>
+#include <linux/utsname.h>
+#include <linux/mm.h>
+#include <linux/swapfile.h>
+#include <linux/seq_file.h>
+#define BUFSIZE  1000
 
-/* Tested on kernel 5.6, qemu-system-aarch64
- * Usage: sudo insmod task_rss
- *        sudo modprobe task_rss
- */
+unsigned long copy_to_user(void __user *to,const void *from, unsigned long n);
+unsigned long copy_from_user(void *to,const void __user *from,unsigned long n);
+MODULE_LICENSE("RAM");
+MODULE_AUTHOR("Grupo");
+struct sysinfo i;
 
-#ifdef pr_fmt
-#undef pr_fmt
-#endif
-#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+static struct proc_dir_entry *ent;
 
-static int __init modinit(void)
+static ssize_t mywrite(struct file *file, const char __user *ubuf,size_t count, loff_t *ppos) 
 {
-    struct task_struct *tsk;
-    unsigned long rss;
+    printk( KERN_DEBUG "write handler\n");
+    return -1;
+}
 
-#ifndef CONFIG_MMU
-    pr_err("No MMU, cannot calculate RSS.\n");
-    return -EINVAL;
-#endif
 
-    for_each_process(tsk) {
-        get_task_struct(tsk);
+static int myread (struct seq_file *buff, void *v){
 
-        // https://www.kernel.org/doc/Documentation/vm/active_mm.rst
-        if (tsk->mm) {
-            rss = get_mm_rss(tsk->mm) << PAGE_SHIFT;
-            pr_info("PID %d (\"%s\") VmRSS = %lu bytes\n", tsk->pid, tsk->comm, rss);
-        } else {
-            pr_info("PID %d (\"%s\") is an anonymous process\n", tsk->pid, tsk->comm);
-        }
-
-        put_task_struct(tsk);
-    }
-
+    printk( KERN_DEBUG "read handler\n");
+    si_meminfo(&i);
+    seq_printf(buff,"{\"total\":%ld, \"libre\": %ld, \"mem_unit\": %ld}", i.totalram, i.freeram,i.mem_unit);
+    
     return 0;
 }
 
-static void __exit modexit(void)
-{
-    // This function is only needed to be able to unload the module.
+static int proc_init (struct inode *inode, struct file *file){
+    return single_open(file,myread,NULL);
+}
+    
+/*
+static const struct proc_ops myops ={
+    .owner =THIS_MODULE,
+    .read=seq_read,
+    .release=single_release,
+    .open=proc_init,
+    .llseek=seq_lseek
+};
+*/
+
+static struct proc_ops myops={
+    .proc_open = proc_init,
+    .proc_release = single_release,
+    .proc_read = seq_read,
+    .proc_lseek = seq_lseek,
+    .proc_write = mywrite
+};
+
+static int simple_init(void){
+
+    printk(KERN_INFO "Iniciando la Lectura de Ram\n");
+    ent=proc_create("ram",0,NULL,&myops);
+    return 0;
 }
 
-module_init(modinit);
-module_exit(modexit);
-MODULE_VERSION("0.1");
-MODULE_DESCRIPTION("Silly test module to calculare task RSS of all running tasks.");
-MODULE_AUTHOR("Marco Bonelli");
-MODULE_LICENSE("GPL");
+static void simple_cleanup(void)
+{
+    printk(KERN_INFO "Saliendo\n");
+    proc_remove(ent);
+}
+
+module_init(simple_init);
+module_exit(simple_cleanup);

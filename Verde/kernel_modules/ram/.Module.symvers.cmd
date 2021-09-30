@@ -1,0 +1,1 @@
+cmd_/home/wrm/PROSOPUN/Verde/kernel_modules/ram/Module.symvers := sed 's/ko$$/o/' /home/wrm/PROSOPUN/Verde/kernel_modules/ram/modules.order | scripts/mod/modpost -m -a   -o /home/wrm/PROSOPUN/Verde/kernel_modules/ram/Module.symvers -e -i Module.symvers   -T -

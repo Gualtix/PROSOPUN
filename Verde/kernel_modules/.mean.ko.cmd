@@ -1,1 +1,0 @@
-cmd_/home/wrm/PROSOPUN/Verde/kernel_modules/mean.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/wrm/PROSOPUN/Verde/kernel_modules/mean.ko /home/wrm/PROSOPUN/Verde/kernel_modules/mean.o /home/wrm/PROSOPUN/Verde/kernel_modules/mean.mod.o;  true
