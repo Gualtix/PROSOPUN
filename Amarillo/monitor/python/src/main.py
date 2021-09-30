@@ -23,13 +23,13 @@ datos1 = [];
 def Ram():
 	dat = request.get_json()
 	datos.append(dat)
-	return jsonify({'ok RAM',datos})
+	return jsonify({'ok RAM':datos})
 
 @app.route('/CPU', methods=['POST'])
 def Cpu():
 	dat = request.get_json()
 	datos1.append(dat)
-	return jsonify({'ok CPU',datos1})
+	return jsonify({'ok CPU':datos1})
 	
 
 @app.route("/")
