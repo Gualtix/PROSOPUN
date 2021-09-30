@@ -9,7 +9,6 @@ import datetime
 from flask import json
 from flask.json import dump
 
-from pymysql import STRING
 import config
 
 import os
