@@ -6,6 +6,10 @@ flask run
 los imports deben estar a color y no grises, si no, no funcioana la api
 '''
 import datetime
+from flask import json
+from flask.json import dump
+
+from pymysql import STRING
 import config
 
 import os
@@ -22,8 +26,13 @@ datos1 = [];
 @app.route('/RAM', methods=['POST'])
 def Ram():
 	dat = request.get_json()
-	datos.append(dat)
-	return jsonify({'ok RAM':datos})
+	memorialibre = int(json.dumps(dat['libre']))/1024
+	memoriatotal = int(json.dumps(dat['total']))/1024
+
+	texto = 'Memoria libre: ' + str(memorialibre) + ' Kbytes ', 'Memoria total: ' + str(memoriatotal) + ' Kbytes', 'SO: ' + dat['so']
+
+	print(texto,'-----------')
+	return jsonify({'ok RAM':dat})
 
 @app.route('/CPU', methods=['POST'])
 def Cpu():
