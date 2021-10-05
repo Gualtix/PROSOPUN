@@ -6,9 +6,9 @@ import json
 #url = 'http://34.120.10.14:80'
 
 
-#url = 'http://34.123.109.15:3000'
+url = 'http://34.123.109.15:3000'
 
-url = 'http://localhost:3000'
+#url = 'http://localhost:3000'
 
 class loadtest:
 
@@ -36,7 +36,9 @@ class loadtest:
         blog = {'URL': 'datacamp.com', 'name': 'Datacamp'}
         to_json= json.dumps(blog)
         response = requests.post(f'{url}/Publicar', json = {})
+        print(response.json())
 
+        '''
         if (
             response.status_code != 204 and
             response.headers["content-type"].strip().startswith("application/json")
@@ -46,6 +48,7 @@ class loadtest:
             except ValueError:
                 print('vacio')
         print('Saliendo de Publicar...')
+        '''
 
         #json_obj = response.json()
         #print(json_obj)
@@ -56,8 +59,17 @@ class loadtest:
         print(json_obj)
 
 if __name__ == "__main__" :
+
+    print('')
+    print('*** I N I C I A N D O ***')
     loadtest.InicarCarga()
+
+    print('')
+    print('*** P U B L I C A N D O ***')
     loadtest.Publicar()
+
+    print('')
+    print('*** F I N A L I Z A N D O ***')
     loadtest.FinalizarCarga()
 
 
