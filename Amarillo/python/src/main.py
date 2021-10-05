@@ -157,6 +157,7 @@ def Publica():
 
 @app.route("/FinalizarCarga", methods=['POST'])
 def Fin():
+	dat1 = request.get_json()
 	global counter
 	global notif
 	
