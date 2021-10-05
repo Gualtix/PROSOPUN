@@ -1,0 +1,32 @@
+How to fix the pip9.exception
+s.InstallationError
+Make sure the version of your pip and setuptools is sufficient for manylinux2014 wheels.
+
+sudo python3 -m pip install -U pip
+sudo python3 -m pip install -U setuptools
+
+
+
+
+#DEBIAN
+sudo pip install azure
+sudo pip install azure.cosmos
+sudo pip install flask-mysql
+sudo pip install google
+sudo pip install google.cloud.bigquery
+sudo pip install google.cloud.storage
+sudo pip install google-cloud
+sudo pip install google-cloud-pubsub
+
+sudo nohup python3 main.py &
+
+#CENTOS
+sudo docker run -d -p 3000:3000 --name olisya peit
+
+
+#ContainerD
+sudo ctr run --rm --net-host --tty --detach docker.io/waltix/peit:latest pycont
+
+sudo ctr run --net-host --tty --detach docker.io/waltix/peit:latest pycont
+
+sudo ctr run --net-host --tty docker.io/waltix/peit:latest pycont

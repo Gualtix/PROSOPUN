@@ -2,11 +2,15 @@ import requests
 import json
 
 #url = 'http://localhost:3000'
-url = 'http://35.209.199.1:80'
+#url = 'http://35.209.199.1:80'
+#url = 'http://34.120.10.14:80'
+
+
+url = 'http://34.123.109.15:3000'
 
 class loadtest:
 
-    def run():
+    def InicarCarga():
        
         f = open('../data.json',)
         data = json.load(f)
@@ -14,15 +18,48 @@ class loadtest:
         for i in data:
             response = requests.post(f'{url}/IniciarCarga', json = i)
             json_obj = response.json()
+            cnt += 1
+            print('Enviando ' + str(cnt) + '...')
+            '''
             if(json_obj['status']=='error'):
                 cnt += 1
+                '''
         ndt = len(data)
         print(f'Test de Carga Finalizado: Tweets Enviados: {ndt}')
-        print(f'Peticiones que Produjeron Error: {cnt}')   
+        #print(f'Peticiones que Produjeron Error: {cnt}')   
         f.close() 
+    
+    def Publicar():
+        blog = {'URL': 'datacamp.com', 'name': 'Datacamp'}
+        to_json= json.dumps(blog)
+        response = requests.post(f'{url}/Publicar', json = {})
+
+        if (
+            response.status_code != 204 and
+            response.headers["content-type"].strip().startswith("application/json")
+        ):
+            try:
+                return response.json()
+            except ValueError:
+                print('vacio')
+        print('Saliendo de Publicar...')
+
+        #json_obj = response.json()
+        #print(json_obj)
+    
+    def FinalizarCarga():
+        blog = {'URL': 'datacamp.com', 'name': 'Datacamp'}
+        to_json= json.dumps(blog)
+        response = requests.post(f'{url}/FinalizarCarga',json = {})
+        json_obj = response.json()
+        print(json_obj)
+
+
 
 if __name__ == "__main__" :
-    loadtest.run()
+    #loadtest.InicarCarga()
+    #loadtest.Publicar()
+    loadtest.FinalizarCarga()
 
 
 
