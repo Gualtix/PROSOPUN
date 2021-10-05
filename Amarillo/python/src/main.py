@@ -155,18 +155,10 @@ def Publica():
 		cursor.close()
 		conn.close()
 
-@app.route("/FinalizarCarga", methods=['GET'])
+@app.route("/FinalizarCarga", methods=['POST'])
 def Fin():
-	'''
 	global counter
 	global notif
-	'''
-	notif = {
-		"guardados": 0,
-		"api": "python",
-		"tiempoDeCarga": 0,
-		"bd": "CloudSQL"
-	}
 	
 	counter = 0
 
@@ -179,12 +171,8 @@ def Fin():
 
 	topic = publisher.create_topic(request={"name": topic_path})
 
-	
-
 	print(f"Created topic: {topic.name}")
 	'''
-
-
 
 	publisher = pubsub_v1.PublisherClient()
 	topic_name = 'projects/{project_id}/topics/{topic}'.format(
