@@ -38,7 +38,7 @@ datos = [];
 datos1 = [];
 
 
-@app.route('/RAM', methods=['POST'])
+@app.route('/metrics', methods=['GET'])
 def Ram():
 	dat = request.get_json()
 	res = []
