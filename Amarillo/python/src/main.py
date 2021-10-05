@@ -95,65 +95,57 @@ def Publica():
 	#print(registro)
 
 	#return resp
-	try:
-		for dato in dats:
-			registro = dato
-			sql = "insert into noti_tweet (humano, comentario, fecha, up, down)values(%s, %s, STR_TO_DATE(REPLACE(%s,'/','.') ,GET_FORMAT(date,'EUR')), %s, %s);"
-			data = (registro['nombre'], registro['comentario'], registro['fecha'], registro['upvotes'], registro['downvotes'])
-			conn = mysql.connect()
-			cursor = conn.cursor(pymysql.cursors.DictCursor)
-			cursor.execute(sql, data)
-			conn.commit()
-			cursor.execute("select id from noti_tweet order by id desc limit 1;")
-			rows = cursor.fetchall()
-			nuevoReg = rows[0]['id']
-			azureDB(nuevoReg, registro)
-			sql2 = "insert into hashtag (nombre) values(%s);"
-			sql3 = "insert into asignacion (id_noti_tweet, hashtag) values(%s, %s)"
-			for hash in registro['hashtags']:
-				try:
-					data2 = (hash)
-					cursor.execute(sql2, data2)
-					conn.commit()
-				except Exception as o:
-					print(o, ' YA EXISTE ESTE HASHTAG')
+	for dato in dats:
+		registro = dato
+		sql = "insert into noti_tweet (humano, comentario, fecha, up, down)values(%s, %s, STR_TO_DATE(REPLACE(%s,'/','.') ,GET_FORMAT(date,'EUR')), %s, %s);"
+		data = (registro['nombre'], registro['comentario'], registro['fecha'], registro['upvotes'], registro['downvotes'])
+		conn = mysql.connect()
+		cursor = conn.cursor(pymysql.cursors.DictCursor)
+		cursor.execute(sql, data)
+		conn.commit()
+		cursor.execute("select id from noti_tweet order by id desc limit 1;")
+		rows = cursor.fetchall()
+		nuevoReg = rows[0]['id']
+		azureDB(nuevoReg, registro)
+		sql2 = "insert into hashtag (nombre) values(%s);"
+		sql3 = "insert into asignacion (id_noti_tweet, hashtag) values(%s, %s)"
+		for hash in registro['hashtags']:
+			try:
+				data2 = (hash)
+				cursor.execute(sql2, data2)
+				conn.commit()
+			except Exception as o:
+				print(o, ' YA EXISTE ESTE HASHTAG')
 
-				try:
-					data3 = (nuevoReg, hash)
-					cursor.execute(sql3, data3)
-					conn.commit()
-				except Exception as q:
-					print(q, ' YA ESTA ESTA ASIGNACION')
+			try:
+				data3 = (nuevoReg, hash)
+				cursor.execute(sql3, data3)
+				conn.commit()
+			except Exception as q:
+				print(q, ' YA ESTA ESTA ASIGNACION')
 
-			global counter
-			counter += 1
+		global counter
+		counter += 1
 
-		response = make_response(jsonify({"status": "ok","msg":"SUCCESSFUL DB QUERY","code":200}),200,)
-		response.headers["Content-Type"] = "application/json"
-		toc = time.perf_counter()
-		global tiempo
-		tiempo = toc - tic
-		#print(f"Tiempo {toc - tic:0.4f}")
-		global notif  
-		notif = {
-			"guardados": counter,
-			"api": "python",
-			"tiempoDeCarga": f"{tiempo:0.2f}",
-			"bd": "CloudSQL"
-		}
-		datos = []
-		print(notif)
-		return response
+	response = make_response(jsonify({"status": "ok","msg":"SUCCESSFUL DB QUERY","code":200}),200,)
+	response.headers["Content-Type"] = "application/json"
+	toc = time.perf_counter()
+	global tiempo
+	tiempo = toc - tic
+	#print(f"Tiempo {toc - tic:0.4f}")
+	global notif  
+	notif = {
+		"guardados": counter,
+		"api": "python",
+		"tiempoDeCarga": f"{tiempo:0.2f}",
+		"bd": "CloudSQL"
+	}
+	datos = []
+	print(notif)
+	cursor.close()
+	conn.close()
+	return response
 
-	except Exception as e:
-		print(e, 'ERROR en la carga de base de datos')
-		response = make_response(jsonify({"status": "error","msg":str(e),"code":500}),500,)
-		response.headers["Content-Type"] = "application/json"
-		return response
-		#return 'ERROR!'
-	finally:
-		cursor.close()
-		conn.close()
 
 @app.route("/FinalizarCarga", methods=['POST'])
 def Fin():
