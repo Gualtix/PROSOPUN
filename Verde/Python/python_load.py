@@ -48,17 +48,13 @@ class loadtest:
         #print(json_obj)
     
     def FinalizarCarga():
-        blog = {'URL': 'datacamp.com', 'name': 'Datacamp'}
-        to_json= json.dumps(blog)
         response = requests.post(f'{url}/FinalizarCarga',json = {})
         json_obj = response.json()
         print(json_obj)
 
-
-
 if __name__ == "__main__" :
-    #loadtest.InicarCarga()
-    #loadtest.Publicar()
+    loadtest.InicarCarga()
+    loadtest.Publicar()
     loadtest.FinalizarCarga()
 
 
