@@ -14,7 +14,7 @@ class loadtest:
 
     def InicarCarga():
        
-        f = open('../data.json',)
+        f = open('../datas.json',)
         data = json.load(f)
         cnt = 0
         for i in data:
