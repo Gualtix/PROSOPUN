@@ -30,3 +30,5 @@ sudo ctr run --rm --net-host --tty --detach docker.io/waltix/peit:latest pycont
 sudo ctr run --net-host --tty --detach docker.io/waltix/peit:latest pycont
 
 sudo ctr run --net-host --tty docker.io/waltix/peit:latest pycont
+
+export GOOGLE_APPLICATION_CREDENTIALS='./key.json'

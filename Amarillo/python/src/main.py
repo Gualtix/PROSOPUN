@@ -134,7 +134,7 @@ def Publica():
 		global tiempo
 		tiempo = toc - tic
 		#print(f"Tiempo {toc - tic:0.4f}")
-		global notif
+		global notif  
 		notif = {
 			"guardados": counter,
 			"api": "python",

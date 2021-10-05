@@ -6,7 +6,9 @@ import json
 #url = 'http://34.120.10.14:80'
 
 
-url = 'http://34.123.109.15:3000'
+#url = 'http://34.123.109.15:3000'
+
+url = 'http://localhost:3000'
 
 class loadtest:
 
@@ -20,6 +22,7 @@ class loadtest:
             json_obj = response.json()
             cnt += 1
             print('Enviando ' + str(cnt) + '...')
+            print(json_obj)
             '''
             if(json_obj['status']=='error'):
                 cnt += 1
