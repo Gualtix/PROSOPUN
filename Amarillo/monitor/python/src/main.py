@@ -40,7 +40,7 @@ datos1 = [];
 
 @app.route('/metrics', methods=['GET'])
 def Ram():
-	dat = request.get_json()
+	'''dat = request.get_json()
 	res = []
 	memorialibre = int(json.dumps(dat['libre']))/1024
 
@@ -53,10 +53,10 @@ def Ram():
 	graphs['total'].set(memoriatotal)
 	graphs['free'].set(memorialibre)
 	graphs['use'].set(memoriauso)
-	print(memorialibre, memoriatotal, memoriauso, average)
+	print(memorialibre, memoriatotal, memoriauso, average)'''
 	'''for k, v in graphs.items():
 		res.append(prometheus_client.generate_latest(v))'''
-	return Response(res, mimetype="text/plain")
+	return Response('hola', mimetype="text/plain")
 
 @app.route('/CPU', methods=['POST'])
 def Cpu():
