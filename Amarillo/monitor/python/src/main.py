@@ -26,49 +26,28 @@ from prometheus_client.core import CollectorRegistry
 from prometheus_client import Summary, Counter, Histogram, Gauge
 
 #2 variables globales, el json con los datos y el objeto para la notifiacion
+_INF = float("inf")
 
 graphs = {}
-graphs['percent'] = Gauge('mi_Porcentaje', 'Porcentaje')
-graphs['total'] = Gauge('mi_Total', 'Total')
-graphs['free'] = Gauge('mi_Libre', 'Libre')
-graphs['use'] = Gauge('mi_Uso', 'Uso')
-
-
-datos = [];
-datos1 = [];
-
-
-@app.route('/metrics', methods=['GET'])
-def Ram():
-	dat = request.get_json()
-	res = []
-	memorialibre = int(json.dumps(dat['libre']))/1024
-
-	memoriatotal = int(json.dumps(dat['total']))/1024
-
-	memoriauso = memoriatotal - memorialibre
-
-	average = round((memoriauso * 100)/memoriatotal,2)
-	graphs['percent'].set(average)
-	graphs['total'].set(memoriatotal)
-	graphs['free'].set(memorialibre)
-	graphs['use'].set(memoriauso)
-	print(memorialibre, memoriatotal, memoriauso, average)
-	for k, v in graphs.items():
-		res.append(prometheus_client.generate_latest(v))
-	return Response(res, mimetype="text/plain")
-
-@app.route('/CPU', methods=['POST'])
-def Cpu():
-	dat = request.get_json()
-	datos1.append(dat)
-	return jsonify({'ok CPU':datos1})
-	
+graphs['c'] = Counter('python_request_operations_total', 'The total number of processed requests')
+graphs['h'] = Histogram('python_request_duration_seconds', 'Histogram for the duration in seconds.', buckets=(1, 2, 5, 6, 10, _INF))
 
 @app.route("/")
-def hello_world():
-	name = os.environ.get("NAME", "Walter")
-	return "Hello {}!".format(name)
+def hello():
+    start = time.time()
+    graphs['c'].inc()
+    
+    time.sleep(0.600)
+    end = time.time()
+    graphs['h'].observe(end - start)
+    return "Hello World!"
+
+@app.route("/metrics")
+def requests_count():
+    res = []
+    for k,v in graphs.items():
+        res.append(prometheus_client.generate_latest(v))
+    return Response(res, mimetype="text/plain")
 
 if __name__ == "__main__":
 	print('-----JALO------');
