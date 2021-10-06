@@ -54,8 +54,8 @@ def Ram():
 	graphs['free'].set(memorialibre)
 	graphs['use'].set(memoriauso)
 	print(memorialibre, memoriatotal, memoriauso, average)
-	for k, v in graphs.items():
-		res.append(prometheus_client.generate_latest(v))
+	'''for k, v in graphs.items():
+		res.append(prometheus_client.generate_latest(v))'''
 	return Response(res, mimetype="text/plain")
 
 @app.route('/CPU', methods=['POST'])
