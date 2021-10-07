@@ -28,8 +28,13 @@ from prometheus_client import Summary, Counter, Histogram, Gauge
 #2 variables globales, el json con los datos y el objeto para la notifiacion
 
 graphs = {}
-graphs['c'] = Gauge('mi_Porcentaje', 'Porcentaje')
-graphs['h'] = Gauge('mi_Total', 'Total')
+graphs['percent'] = Gauge('mi_Porcentaje', 'Porcentaje')
+graphs['total'] = Gauge('mi_Total', 'Total')
+graphs['free'] = Gauge('mi_Libre', 'Libre')
+graphs['use'] = Gauge('mi_Uso', 'Uso')
+graphs['c'] = Gauge('C', 'C')
+graphs['h'] = Gauge('H', 'H')
+
 
 
 datos = [];
@@ -38,13 +43,28 @@ datos1 = [];
 
 @app.route("/")
 def hello():
+	
     start = time.time()
-    graphs['c'].set(start)
+    graphs['c'].inc()
     
     time.sleep(0.600)
     end = time.time()
-    graphs['h'].set(end - start)
+    graphs['h'].observe(end - start)
     return "Hello World!"
+
+@app.route("/RAM", methods=['POST'])
+def ram():
+	dat = request.get_json()
+	memorialibre = int(json.dumps(dat['libre']))/1024
+
+	memoriatotal = int(json.dumps(dat['total']))/1024
+
+	memoriauso = memoriatotal - memorialibre
+
+	average = round((memoriauso * 100)/memoriatotal,2)
+
+	print(memorialibre, memoriatotal, memoriauso, average)
+	return "RAM"
 
 @app.route("/metrics")
 def requests_count():
