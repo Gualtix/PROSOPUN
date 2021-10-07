@@ -1,137 +1,67 @@
 
 import React, {useEffect, useState} from "react";
-import CompDrawer from './CompDrawer'
-import { BrowserRouter  as Router,Route,Switch} from "react-router-dom";
+
+
+import { BrowserRouter  as Router,Route,Switch,Redirect} from "react-router-dom";
 import './Menu.css'
 import VistaNewMsg from "../pages/VistaNewMsg";
+import VistaN2 from "../pages/VistaN2"
 import Reportes from "../pages/Reportes";
 import Reportes2 from "../pages/Reportes2";
-import socket from "./Socket";
+//import socket from "./Socket";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import CompDrawer from "./CompDrawer";
+import Notificacion2 from "./Notificacion2"
+import io from "socket.io-client";
+const ENDPOINT = "//localhost:8080"
 
 
-/*function Menu(){
-    const [dats,setDatos] = useState([]);
-     useEffect(()=>{
-        socket.on('contenido',dats =>{
-           setDatos(dats) 
-        })
-    },[dats])
-
-}*/
-
-
-export default function MaterialUI (){
+export default function MaterialUI (props){
    
-
-    const [ReEnvio,setReEnvio] = useState( 
-        {'ReEnvio':[{
-            "Api": "",
-            "Guardados":"",
-            "TiempoDeCarga":"",
-            "DB": ""
-        }]}
-     );
-     useEffect(()=>{
-         
-        socket.on('ReEnvio',re =>{
-            setReEnvio(re) 
-        })
-    },[])//aqui tenia [ReEnvio]
-
-    
-
+  
+  
     return( 
         
         <>
-       
+      
         <div class = "left"  > 
-        {
-            console.log('mensaje'),
-            console.log(ReEnvio)
-        }
-      <CompDrawer />
+       
+      
       <Router>
+          <CompDrawer />
                 <Switch>
                 <Route exact path ="/">
+                    <br />
+                    Bienvenidos
+                    <br/>
+                    Pagina de inicio
+                    <br/>
+                    <br/>
+                    </Route>
+                
+                <Route exact path ="/Notificacion">
                     
                     <p>
                         <h6>Notificaciones de Carga </h6>
                     </p>
                     
                    {/* width: 300, height: 300,minWidth: 75, marginLeft: 50, */}
-                   
+                 
                     <div style={{ display:'flex',justifyContent:'center' }}>
-                    <Card sx={{ maxWidth: 370 }} >
-                        { /*<CardMedia
-                            component="img"
-                            marginLeft = "30"
-                            margin right = "30"
-                            height="140"
-                            image="/static/images/cards/contemplative-reptile.jpg"
-                            alt="green iguana"
-                        />
-                        */}
-                        <CardContent >
-                            <Typography gutterBottom variant="h6" component="div">
-                              Notificación de Carga  
-                            </Typography>
-                            <hr />
-                            {
-
-                                ( ReEnvio === "" ? " " : 
-                                ( ReEnvio.ReEnvio.map((el)=>(
-                                    <>
-                                    <Typography fontSize="1rem" color="text.secondary">
-                                    API: {el.Api}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.primary">
-                                    GUARDADOS:{el.Guardados}
-                                    </Typography>
-                                    <Typography  fontSize="1rem" color="text.secondary">
-                                    TIEMPO DE CARGA:{el.TiempoDeCarga}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.primary">
-                                    BASE DE DATOS:{el.DB}
-                                    </Typography>
-{
-                                       /* <h4>API: </h4> {el.Api}
-                                        <h4>GUARDADOS: </h4> {el.Guardados}
-                                        <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
-                                        <h4>BASE DE DATOS: </h4> {el.DB}*/}
-                                    </>
-                                ))))
-                            }
-
-                            
-                        </CardContent>
-                        </Card>
+                    {
+                        <Notificacion2 />
+                        }
                     </div>
-                     
-            {/*
-
-               ( ReEnvio === "" ? " " : 
-                ( ReEnvio.ReEnvio.map((el)=>(
-                     <>
-                     
-
-                        <h4>API: </h4> {el.Api}
-                        <h4>GUARDADOS: </h4> {el.Guardados}
-                        <h4>TIEMPO DE CARGA: </h4> {el.TiempoDeCarga}
-                        <h4>BASE DE DATOS: </h4> {el.DB}
-                    </>
-                 ))))
-                */ }
-
-                    
-                    
-                    
+    
                     
                 </Route>
                 <Route exact path ="/VistaNewsMsgs">
                     <VistaNewMsg />
+                </Route>
+                <Route exact path ="/VistaN2">
+                    <VistaN2 />
                 </Route>
                 <Route exact path ="/Reportes">
                   

@@ -179,7 +179,7 @@ io.sockets.on('connection', (socket) => {
 
 //mensaje de recepcion del Sub
 io.sockets.on('connection',(socket)=>{
-  //  console.log('nueva conexcion: ');
+    console.log('nueva conexcion: ');
     
     
     socket.on('clientEnvioMsg', data =>{
@@ -195,6 +195,8 @@ io.sockets.on('connection',(socket)=>{
         mensaje.push(mens);
         console.log(mensaje)
     })
+
+    console.log('entro pero no entro');
    
 })
 
@@ -402,6 +404,6 @@ io.sockets.on('connection', (socket) => {
 },500);//tiempo del servidor
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
-    console.log('Server running on port 3001');
+    console.log('Server running on port 8080');
 })
 //pure-ethos-325501
