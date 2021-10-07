@@ -12,35 +12,6 @@
       "downvotes": 86
     },
     {
-      "nombre": "Lyons Gaines",
-      "comentario": "Tweet:1",
-      "fecha": "3/3/2021",
-      "hashtags": [
-        "cillum",
-        "mollit"
-      ],
-      "upvotes": 71,
-      "downvotes": 25
-    },
-    {
-      "nombre": "Brown Kim",
-      "comentario": "Tweet:2",
-      "fecha": "25/2/2021",
-      "hashtags": [
-        "in",
-        "anim",
-        "velit",
-        "sit",
-        "tempor",
-        "Lorem",
-        "in",
-        "amet",
-        "consectetur"
-      ],
-      "upvotes": 53,
-      "downvotes": 42
-    },
-    {
       "nombre": "Fuentes Mcbride",
       "comentario": "Tweet:3",
       "fecha": "22/10/2021",
@@ -48,11 +19,7 @@
         "adipisicing",
         "do",
         "commodo",
-        "magna",
-        "consequat",
-        "fugiat",
-        "dolore",
-        "mollit",
+
         "fugiat"
       ],
       "upvotes": 92,
@@ -81,29 +48,5 @@
       ],
       "upvotes": 71,
       "downvotes": 59
-    },
-    {
-      "nombre": "Mcguire Moran",
-      "comentario": "Tweet:6",
-      "fecha": "8/5/2021",
-      "hashtags": [
-        "Lorem"
-      ],
-      "upvotes": 59,
-      "downvotes": 85
-    },
-    {
-      "nombre": "Pruitt Harmon",
-      "comentario": "Tweet:7",
-      "fecha": "11/5/2021",
-      "hashtags": [
-        "dolore",
-        "ipsum",
-        "voluptate",
-        "commodo",
-        "id"
-      ],
-      "upvotes": 81,
-      "downvotes": 24
     }
   ]
