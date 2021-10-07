@@ -39,11 +39,11 @@ datos1 = [];
 @app.route("/")
 def hello():
     start = time.time()
-    graphs['c'].inc()
+    graphs['c'].set(start)
     
     time.sleep(0.600)
     end = time.time()
-    graphs['h'].observe(end - start)
+    graphs['h'].set(end - start)
     return "Hello World!"
 
 @app.route("/metrics")
