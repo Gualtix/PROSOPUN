@@ -32,25 +32,9 @@ graphs['percent'] = Gauge('mi_Porcentaje', 'Porcentaje')
 graphs['total'] = Gauge('mi_Total', 'Total')
 graphs['free'] = Gauge('mi_Libre', 'Libre')
 graphs['use'] = Gauge('mi_Uso', 'Uso')
-graphs['c'] = Gauge('C', 'C')
-graphs['h'] = Gauge('H', 'H')
-
-
 
 datos = [];
 datos1 = [];
-
-
-@app.route("/")
-def hello():
-	
-    start = time.time()
-    graphs['c'].inc()
-    
-    time.sleep(0.600)
-    end = time.time()
-    graphs['h'].observe(end - start)
-    return "Hello World!"
 
 @app.route("/RAM", methods=['POST'])
 def ram():
@@ -62,7 +46,10 @@ def ram():
 	memoriauso = memoriatotal - memorialibre
 
 	average = round((memoriauso * 100)/memoriatotal,2)
-
+	graphs['percent'].set(average)
+	graphs['total'].set(memoriatotal)
+	graphs['free'].set(memorialibre)
+	graphs['use'].set(memoriauso)
 	print(memorialibre, memoriatotal, memoriauso, average)
 	return "RAM"
 
