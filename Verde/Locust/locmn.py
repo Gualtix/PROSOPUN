@@ -81,7 +81,7 @@ class MyTasks(SequentialTaskSet):
 
     
 class MyWebsiteUser(HttpUser): 
-    host="http://34.132.20.59:3000"
+    host="http://34.120.10.14:80"
     #host="http://localhost:3000"
     tasks= [MyTasks]
     

@@ -37,7 +37,7 @@ sudo docker logs -f
 sudo ctr image list
 sudo ctr image pull docker.io/waltix/segunda:latest
 
-sudo ctr run --net-host --tty --detach docker.io/waltix/peit:latest pycont
+sudo ctr run --net-host --tty --detach docker.io/waltix/segunda:latest calific
 sudo ctr run --net-host --tty docker.io/waltix/peit:latest pockemon
 
 sudo ctr task list
@@ -48,6 +48,7 @@ sudo ctr task delete pycont
 
 
 $env:GOOGLE_APPLICATION_CREDENTIALS='./key.json'
+kill -9 $(lsof -ti:3000)
 
 
 
