@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-url = 'http://35.184.109.181:3000'
+url = 'http://35.184.109.181:8000/RAM'
 
 class sender:
 
