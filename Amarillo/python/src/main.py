@@ -20,6 +20,7 @@ from db_config import mysql
 from flask import jsonify,make_response
 from flask import flash, request
 from google.cloud import pubsub_v1
+from google.auth import jwt
 
 #2 variables globales, el json con los datos y el objeto para la notifiacion
 
@@ -172,7 +173,20 @@ def Fin():
 	print(f"Created topic: {topic.name}")
 	'''
 
-	publisher = pubsub_v1.PublisherClient()
+	#publisher = pubsub_v1.PublisherClient()
+	
+
+	service_account_info = json.load(open("./key.json"))
+	audience = "https://pubsub.googleapis.com/google.pubsub.v1.Subscriber"
+
+	credentials = jwt.Credentials.from_service_account_info(
+		service_account_info, audience=audience
+	)
+
+	publisher_audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
+	credentials_pub = credentials.with_claims(audience=publisher_audience)
+	publisher = pubsub_v1.PublisherClient(credentials=credentials_pub)
+
 	topic_name = 'projects/{project_id}/topics/{topic}'.format(
 		project_id='charged-sled-325502',
 		topic='so1',  

@@ -1,7 +1,6 @@
 FROM python:3.8
 WORKDIR /main
 COPY . .
-COPY key.json /src/
 RUN pip install -r requirements.txt
 RUN pip install --pre azure-cosmos
 RUN pip install --upgrade google-cloud-pubsub
