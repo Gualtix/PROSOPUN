@@ -29,16 +29,23 @@ sudo docker push waltix/peit
 export GOOGLE_APPLICATION_CREDENTIALS='./key.json'
 sudo docker run -d -p 3000:3000 --name olisya peit
 sudo docker ps -a
-sudo docker logs 
-
+sudo docker logs -f
 
 
 #ContainerD
-sudo ctr run --rm --net-host --tty --detach docker.io/waltix/peit:latest pycont
+
+sudo ctr image list
+sudo ctr image pull docker.io/waltix/segunda:latest
 
 sudo ctr run --net-host --tty --detach docker.io/waltix/peit:latest pycont
+sudo ctr run --net-host --tty docker.io/waltix/peit:latest pockemon
 
-sudo ctr run --net-host --tty docker.io/waltix/peit:latest pycont
+sudo ctr task list
+sudo ctr task kill pycont
+sudo ctr task delete pycont
+
+
+
 
 $env:GOOGLE_APPLICATION_CREDENTIALS='./key.json'
 
