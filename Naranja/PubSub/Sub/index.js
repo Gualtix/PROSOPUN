@@ -3,6 +3,14 @@
 // Para instalar, utilizamos npm install --save @google-cloud/pubsub
 
 const { PubSub } = require('@google-cloud/pubsub');
+//const {Storage} = require('@google-cloud/storage');
+
+// Instantiates a client. Explicitly use service account credentials by
+// specifying the private key file. All clients in google-cloud-node have this
+// helper, see https://github.com/GoogleCloudPlatform/google-cloud-node/blob/master/docs/authentication.md
+// const projectId = 'project-id'
+const keyFilename = 'key.json'
+//const storage = new Storage({projectId, keyFilename});
 
 // Acá escribimos la suscripción que creamos en Google Pub/Sub
 const SUB_NAME = 'projects/charged-sled-325502/subscriptions/so1-sub';//'projects/sopes1-auxiliatura/subscriptions/twitterLite-sub';
@@ -12,7 +20,7 @@ const SUB_NAME = 'projects/charged-sled-325502/subscriptions/so1-sub';//'project
 const TIMEOUT = process.env.TIMEOUT || 1000;//180
 
 // Crear un nuevo cliente de pubsub
-const client = new PubSub();
+const client = new PubSub({keyFilename});
 
 // En este array guardaremos nuestros datos
 const messages = [];
@@ -40,8 +48,8 @@ const messageReader = async message => {
         console.log(jsonMessage)
         const io = require("socket.io-client");
 
-        const socket = io('https://pure-ethos-325501.uc.r.appspot.com');
-        //const socket = io('http://localhost:8080');
+        //const socket = io('https://pure-ethos-325501.uc.r.appspot.com');
+        const socket = io('http://localhost:8080');
         socket.emit('clientEnvioMsg',{
             Api: jsonMessage.api, //|| jsonMessage.Api || "Anonimo", 
             Guardados: jsonMessage.guardados,//  || jsonMessage.Guardados || "Empty" ,
@@ -49,6 +57,7 @@ const messageReader = async message => {
             DB: jsonMessage.bd,// || jsonMessage.DB || "Empty" 
         })
         console.log("envio el mensaje")
+        socket.disconnect()
         ///await axios.post(process.env.API_URL, request_body);
     }
     catch (e) {
