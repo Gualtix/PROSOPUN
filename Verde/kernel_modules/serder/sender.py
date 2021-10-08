@@ -15,7 +15,6 @@ class sender:
         while True:
             f = open('/proc/ram.json',)
             data = json.load(f)
-            data['so'] = 'UBUNTU'
             response = requests.post(f'{url}/RAM', json = data)
             json_obj = response.json()
             print(json_obj)
