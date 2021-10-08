@@ -1,0 +1,5 @@
+runtime: nodejs14
+env: flex
+
+env_variables:
+  PUBSUB_TOPIC: projects/charged-sled-325502/topics/so1

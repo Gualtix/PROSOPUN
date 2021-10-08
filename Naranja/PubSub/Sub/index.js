@@ -3,6 +3,14 @@
 // Para instalar, utilizamos npm install --save @google-cloud/pubsub
 
 const { PubSub } = require('@google-cloud/pubsub');
+//const {Storage} = require('@google-cloud/storage');
+
+// Instantiates a client. Explicitly use service account credentials by
+// specifying the private key file. All clients in google-cloud-node have this
+// helper, see https://github.com/GoogleCloudPlatform/google-cloud-node/blob/master/docs/authentication.md
+// const projectId = 'project-id'
+const keyFilename = 'key.json'
+//const storage = new Storage({projectId, keyFilename});
 
 // Acá escribimos la suscripción que creamos en Google Pub/Sub
 const SUB_NAME = 'projects/charged-sled-325502/subscriptions/so1-sub';//'projects/sopes1-auxiliatura/subscriptions/twitterLite-sub';
@@ -12,7 +20,7 @@ const SUB_NAME = 'projects/charged-sled-325502/subscriptions/so1-sub';//'project
 const TIMEOUT = process.env.TIMEOUT || 1000;//180
 
 // Crear un nuevo cliente de pubsub
-const client = new PubSub();
+const client = new PubSub({keyFilename});
 
 // En este array guardaremos nuestros datos
 const messages = [];
