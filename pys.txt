@@ -34,3 +34,5 @@ sudo ctr run --net-host --tty docker.io/waltix/peit:latest pycont
 $env:GOOGLE_APPLICATION_CREDENTIALS='./key.json'
 
 export GOOGLE_APPLICATION_CREDENTIALS='./key.json'
+
+https://gitlab.com/wygd/kubernetes_ci_cd.git
