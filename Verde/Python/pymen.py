@@ -25,7 +25,7 @@ def print_menu():
 def IniciarCarga():
     print('* * * I N I C I A R   C A R G A * * *')
 
-    f = open('../archivi.json',)
+    f = open('../archivito.json',)
     data = json.load(f)
     cnt = 0
 

@@ -17,7 +17,7 @@ class MyTasks(SequentialTaskSet):
         clear()
         print('* * * I N I C I A R   C A R G A * * *')
 
-        f = open('../data.json',)
+        f = open('../archivito.json',)
         data = json.load(f)
         cnt = 0
 
@@ -81,7 +81,7 @@ class MyTasks(SequentialTaskSet):
 
     
 class MyWebsiteUser(HttpUser): 
-    host="http://localhost:3000"
+    host="http://35.184.80.203:3000"
     tasks= [MyTasks]
     
     

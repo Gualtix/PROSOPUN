@@ -18,10 +18,16 @@ sudo pip install google.cloud.storage
 sudo pip install google-cloud
 sudo pip install google-cloud-pubsub
 
+
+
 sudo nohup python3 main.py &
 
 #CENTOS
+sudo docker build -t peit .
+sudo docker push waltix/peit
+
 sudo docker run -d -p 3000:3000 --name olisya peit
+
 
 
 #ContainerD
