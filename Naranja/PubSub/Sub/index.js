@@ -1,19 +1,15 @@
 
-// Importar la libreria de Google PubSub
-// Para instalar, utilizamos npm install --save @google-cloud/pubsub
-// Generalmente esto lo hacemos en un fronted!
-const { PubSub } = require('@google-cloud/pubsub');
 
-// Importar axios para realizar una peticion http
-// Para instalar utilizamos npm install --save axios
-const axios = require('axios');
+// Para instalar, utilizamos npm install --save @google-cloud/pubsub
+
+const { PubSub } = require('@google-cloud/pubsub');
 
 // Acá escribimos la suscripción que creamos en Google Pub/Sub
 const SUB_NAME = 'projects/charged-sled-325502/subscriptions/so1-sub';//'projects/sopes1-auxiliatura/subscriptions/twitterLite-sub';
 
 // Cantidad de segundos que estara prendido nuestro listener
 // Solo para efectos practicos, realmente esto debería estar escuchando en todo momento!
-const TIMEOUT = process.env.TIMEOUT || 180;
+const TIMEOUT = process.env.TIMEOUT || 1000;//180
 
 // Crear un nuevo cliente de pubsub
 const client = new PubSub();
@@ -44,14 +40,15 @@ const messageReader = async message => {
         console.log(jsonMessage)
         const io = require("socket.io-client");
 
-        const socket = io('http://localhost:3001/');
-
+        const socket = io('https://pure-ethos-325501.uc.r.appspot.com');
+        //const socket = io('http://localhost:8080');
         socket.emit('clientEnvioMsg',{
-            Api: jsonMessage.api,// || jsonMessage.Api || "Anonimo", 
-            Guardados: jsonMessage.guardados,// || jsonMessage.Guardados || "Empty" ,
-            TiempoDeCarga: jsonMessage.TiempoDeCarga,// || jsonMessage.TiempoDeCarga || "Empty" ,
+            Api: jsonMessage.api, //|| jsonMessage.Api || "Anonimo", 
+            Guardados: jsonMessage.guardados,//  || jsonMessage.Guardados || "Empty" ,
+            TiempoDeCarga: jsonMessage.TiempoDeCarga,//  || jsonMessage.TiempoDeCarga || "Empty" ,
             DB: jsonMessage.bd,// || jsonMessage.DB || "Empty" 
         })
+        console.log("envio el mensaje")
         ///await axios.post(process.env.API_URL, request_body);
     }
     catch (e) {
@@ -71,7 +68,7 @@ const notificationListener = () => {
 
     console.log("Estoy a la espera de los mensajes...");
 
-    setTimeout(() => {
+ /*   setTimeout(() => {
         sub.removeListener('message', messageReader);
 
         if (messages.length > 0) {
@@ -84,6 +81,7 @@ const notificationListener = () => {
         }
 
     }, TIMEOUT * 1000);
+    */
 };
 
 console.log(`Iniciando Subscriber, deteniendolo en ${TIMEOUT} segundos...`);

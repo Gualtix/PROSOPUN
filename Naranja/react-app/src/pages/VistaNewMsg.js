@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import './VistaNewMsg.css'
 import MediaCard from '../componentes/Card';
 import socket from "../componentes/Socket";
+import { Box } from '@mui/system';
 
 
 function ElementoLista(props){
@@ -28,7 +29,7 @@ function ElementoLista(props){
 
     return(
         
-        <Grid item xs={8}>
+        <Grid item xs={2} sm={4} md={4} >
             <Item>
                 <MediaCard
                 nombre ={ props.el.humano}
@@ -91,7 +92,8 @@ const VistaNewMsg = () =>{
         //aqui deberia tratar con un map para poder reutilizar el grid item con la info
         <div class = "left" >
             {console.log(contenido)}
-            <Grid container spacing = {2} columns = {35} >
+            <Box sx={{ flexGrow: 1 }}>
+             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 16 }}>
                  {
                      contenido.contenido.slice(0).reverse().map((el)=>(
                         hashs === "" ? " " : (ha = hashs.hashs.filter(ides => ides.id_noti_tweet === el.id)),
@@ -126,6 +128,7 @@ const VistaNewMsg = () =>{
                 </Grid>*/}
                 
             </Grid>
+            </Box>
             <br />
         </div>
  

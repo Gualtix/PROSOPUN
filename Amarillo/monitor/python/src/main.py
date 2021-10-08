@@ -26,7 +26,45 @@ from prometheus_client.core import CollectorRegistry
 from prometheus_client import Summary, Counter, Histogram, Gauge
 
 #2 variables globales, el json con los datos y el objeto para la notifiacion
-_INF = float("inf")
+
+graphs = {}
+graphs['percent'] = Gauge('mi_Porcentaje', 'Porcentaje')
+graphs['total'] = Gauge('mi_Total', 'Total')
+graphs['free'] = Gauge('mi_Libre', 'Libre')
+graphs['use'] = Gauge('mi_Uso', 'Uso')
+
+datos = [];
+datos1 = [];
+
+@app.route("/RAM", methods=['POST'])
+def ram():
+	dat = request.get_json()
+	memorialibre = int(json.dumps(dat['libre']))/1024
+
+	memoriatotal = int(json.dumps(dat['total']))/1024
+
+	memoriauso = memoriatotal - memorialibre
+
+	average = round((memoriauso * 100)/memoriatotal,2)
+	graphs['percent'].set(average)
+	graphs['total'].set(memoriatotal)
+	graphs['free'].set(memorialibre)
+	graphs['use'].set(memoriauso)
+	print(memorialibre, memoriatotal, memoriauso, average)
+	return "RAM"
+
+@app.route("/metrics")
+def requests_count():
+    res = []
+    for k,v in graphs.items():
+        res.append(prometheus_client.generate_latest(v))
+    return Response(res, mimetype="text/plain")
+
+if __name__ == "__main__":
+	print('-----JALO------');
+	app.run(debug=True, host="0.0.0.0", port=8000)
+
+'''_INF = float("inf")
 
 graphs = {}
 graphs['c'] = Counter('python_request_operations_total', 'The total number of processed requests')
@@ -47,8 +85,4 @@ def requests_count():
     res = []
     for k,v in graphs.items():
         res.append(prometheus_client.generate_latest(v))
-    return Response(res, mimetype="text/plain")
-
-if __name__ == "__main__":
-	print('-----JALO------');
-	app.run(debug=True, host="0.0.0.0", port=8000)
+    return Response(res, mimetype="text/plain")'''

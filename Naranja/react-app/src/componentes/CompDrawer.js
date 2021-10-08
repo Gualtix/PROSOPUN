@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React, {useEffect, useState} from "react";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -16,8 +16,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import ListAltIcon from '@mui/icons-material/ListAlt';
+import HomeIcon from '@mui/icons-material/Home';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import { Link } from "@mui/material";
 
 import "./Menu.css"
+import { withRouter,Redirect } from "react-router";
+import InsertChart from "@mui/icons-material/InsertChart";
 
 const drawerWidth = 240;
 
@@ -86,8 +91,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
-  
+ const MiniDrawer = props => {
+  //console.log("las props entrantes")
+  //console.log(props)
+  const {history} = props
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -99,10 +106,36 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
+  const [pass2,setForm] = useState("");
+
+  const handleChange = e=>{
+      setForm( e.target.value)
+  }
+  const [pass,setPass] = useState("");
+var estado = true;
+  const handleClick = e =>{
+    setPass(pass2)
+    if(pass2=="admin"){
+    }
+    
+  }
+  const handleClick2 = e =>{
+    setPass("")
+    setForm("")
+  }
+ 
 
   return (
+    <>
+    {/*props.visible !== "admin" ? (
+                <Redirect from = "/Reportes" to="/" />) : "" */}
+                {/*props.visible !== "admin" ? (
+                <Redirect from = "/Reportes2" to="/" />) : "" */}
+
     <Box sx={{ display: 'flex' }}>
+
+      {/*console.log("la entrada"),console.log(pass)*/}
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -116,10 +149,35 @@ export default function MiniDrawer() {
               ...(open && { display: 'none' }),
             }}
           >
+            
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Sistemas Operativos 1 - 2S2021
+            Sistemas Operativos 1 - 2S2021    |
+            
+           {
+             pass === "admin" ? 
+             (
+               
+              <button onClick = {handleClick2}>logout</button>
+             ):
+             (
+               <>
+              <label htmlFor = "nombre">Contraseña:</label>
+              <input 
+              type = "password" 
+              id = "nombre" 
+              name = "nombre" 
+              value = {pass2}
+              onChange ={handleChange} 
+              /> 
+            <button onClick = {handleClick}>Login</button>
+            </>
+             )
+            
+
+            }
+          {console.log(handleClick.e), console.log("el valor es")}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -129,33 +187,26 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        {/*<Divider />
+       
         <List>
-          {['Inicio', 'Noticias y Mensajes', 'Noticias'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-          </List>
-        <Divider />
-        */}
-        <List>
-          {[{name:'Home',url:"home"}, {name:'CloudSQL',url:"/Reportes"},{name:'News/Messages',url:"/VistaNewsMsgs"},{name:'CosmosDB',url:"/Reportes2"}].map((text, index) => (
-            <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
-            {/*<ListItem button key={text.name} Link to="/Reportes">*/}
-              <ListItemIcon>
-                {index % 2 === 0 ? <ListAltIcon /> : <InsertChartIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text.name} />
-            </ListItem>
-          ))}
+          {
+            [{name:'Home',url:"/", icon:<HomeIcon /> },{name:'Notificacion',url:"/Notificacion",icon:<NotificationsActiveIcon />},{name:'NewsM/Cosmos',url:"/VistaN2",icon:<ListAltIcon />},{name:'News/Messages',url:"/VistaNewsMsgs",icon:<ListAltIcon />},{name:'CloudSQL',url:"/Reportes", icon: <InsertChartIcon />},{name:'CosmosDB',url:"/Reportes2", icon: <InsertChart />}].map((text, index) => (
+              <ListItem button key={text.name} component="a" href={text.url === "home"? "\\":text.url}>
+              {/*<ListItem button key={text.name} Link to="/Reportes">*/}
+                <ListItemIcon>{text.icon}</ListItemIcon>
+                <ListItemText primary={text.name} />
+              </ListItem>
+            ))
+          
+          }
+          
         </List>
+        
       </Drawer>
-      
-      
+
     </Box>
+    </>
   );
 }
+
+export default withRouter (MiniDrawer)
