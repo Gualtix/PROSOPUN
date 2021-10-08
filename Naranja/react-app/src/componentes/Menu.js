@@ -14,8 +14,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CompDrawer from "./CompDrawer";
 import Notificacion2 from "./Notificacion2"
-import io from "socket.io-client";
-const ENDPOINT = "//localhost:8080"
+//import io from "socket.io-client";
+//const ENDPOINT = "//localhost:8080"
 
 
 export default function MaterialUI (props){

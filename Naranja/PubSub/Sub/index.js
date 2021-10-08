@@ -48,8 +48,8 @@ const messageReader = async message => {
         console.log(jsonMessage)
         const io = require("socket.io-client");
 
-        const socket = io('https://pure-ethos-325501.uc.r.appspot.com');
-        //const socket = io('http://localhost:8080');
+        //const socket = io('https://pure-ethos-325501.uc.r.appspot.com');
+        const socket = io('http://localhost:8080');
         socket.emit('clientEnvioMsg',{
             Api: jsonMessage.api, //|| jsonMessage.Api || "Anonimo", 
             Guardados: jsonMessage.guardados,//  || jsonMessage.Guardados || "Empty" ,
@@ -57,6 +57,7 @@ const messageReader = async message => {
             DB: jsonMessage.bd,// || jsonMessage.DB || "Empty" 
         })
         console.log("envio el mensaje")
+        socket.disconnect()
         ///await axios.post(process.env.API_URL, request_body);
     }
     catch (e) {
