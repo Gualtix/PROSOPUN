@@ -9,7 +9,7 @@ import json
 
 url="http://34.120.10.14:80"
 
-#url = 'http://localhost:3000'
+url = 'http://34.123.109.15:3000'
 
 menu_options = {
     1: 'InicarCarga',
